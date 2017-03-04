@@ -1,0 +1,46 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="banding">
+		<roleset framnet="" id="banding.01" name="Attaching" vncls="22.3 22.4" source="verb-band.01">
+			<roles>
+				<role descr="Causer of banding together" f="PAG" n="0">
+					<vnrole vncls="22.3" vntheta="Agent"/>
+					<vnrole vncls="22.4" vntheta="Agent"/>
+				</role>
+				<role descr="First thing attached" f="PPT" n="1">
+					<vnrole vncls="22.3" vntheta="Patient"/>
+					<vnrole vncls="22.4" vntheta="Patient"/>
+				</role>
+				<role descr="Other things, if present" f="PPT" n="2">
+					<vnrole vncls="22.4" vntheta="co-patient"/>
+				</role>
+				<role descr="Attribute of patients" f="" n="3"/>
+				<note/>
+			</roles>
+			<example name="Arg0, 1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Stewart is optimistic about the species population, and with his banding of dozens and dozens of birds each year, he knows that there is more to find out about this hawk that is called "the Urban Bird."
+				</text>
+				<arg f="" n="0">
+					his
+				</arg>
+				<rel f="">
+					banding
+				</rel>
+				<arg f="" n="1">
+					of dozens and dozens of birds
+				</arg>
+				<arg f="tmp" n="m">
+					each year
+				</arg>
+				<note/>
+			</example>
+			<note>
+				band.01
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

@@ -1,0 +1,36 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="induration">
+		<roleset framnet="" id="induration.01" name="Making or becoming harder" source="verb-indurate.01" vncls="45.4">
+			<roles>
+				<role descr="Cause of hardening" f="PAG" n="0">
+					<vnrole vncls="45.4" vntheta="Agent"/>
+				</role>
+				<role descr="Entity hardened" f="PPT" n="1">
+					<vnrole vncls="45.4" vntheta="Patient"/>
+				</role>
+				<role descr="Instrument" f="" n="2"/>
+				<note/>
+			</roles>
+			<example name="Arg0, 1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					The pathogen's induration of the tissue had become more intense since the treatment.
+				</text>
+				<arg f="" n="0">
+					the pathogen's
+				</arg>
+				<rel f="">
+					induration
+				</rel>
+				<arg f="" n="1">
+					of the tissue
+				</arg>
+				<note/>
+			</example>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

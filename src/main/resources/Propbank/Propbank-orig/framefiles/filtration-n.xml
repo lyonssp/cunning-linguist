@@ -1,0 +1,16 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="filtration">
+		<roleset framnet="" id="filtration.01" name="Sorting, sifting, isolating, diffusing" source="verb-filter.02" vncls="">
+			<roles>
+				<role descr="Filterer" f="PAG" n="0"/>
+				<role descr="Things removed, filtered out" f="PPT" n="1"/>
+				<role descr="Source, filtered out from" f="" n="2"/>
+				<note/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

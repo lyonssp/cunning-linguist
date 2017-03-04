@@ -1,0 +1,59 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="restoration">
+		<roleset framnet="" id="restoration.01" name="Giving back" vncls="45.4" source="verb-restore.01">
+			<roles>
+				<role descr="Giver, restorer" f="PAG" n="0">
+					<vnrole vncls="45.4" vntheta="Agent"/>
+				</role>
+				<role descr="Gift, thing restored" f="PPT" n="1">
+					<vnrole vncls="45.4" vntheta="Patient"/>
+				</role>
+				<role descr="Benefactive, restored-to" f="" n="2"/>
+				<note/>
+			</roles>
+			<example name="Arg1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Call the municipal utility district office for restoration of service.
+				</text>
+				<rel f="">
+					restoration
+				</rel>
+				<arg f="" n="1">
+					of service
+				</arg>
+				<note/>
+			</example>
+			<note>
+				restore.01
+			</note>
+		</roleset>
+		<roleset framnet="" id="restoration.02" name="Making like new" vncls="" source="verb-restore.02">
+			<roles>
+				<role descr="Restorer" f="PAG" n="0"/>
+				<role descr="Thing restored" f="PPT" n="1"/>
+				<role descr="End state" f="" n="2"/>
+				<note/>
+			</roles>
+			<example name="Arg1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Building restoration describes a particular treatment approach and philosophy within the field of architectural conservation.
+				</text>
+				<arg f="" n="1">
+					building
+				</arg>
+				<rel f="">
+					restoration
+				</rel>
+				<note/>
+			</example>
+			<note>
+				restore.02
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

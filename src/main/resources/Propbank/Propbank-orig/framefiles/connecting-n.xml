@@ -1,0 +1,16 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="connecting">
+		<roleset framnet="" id="connecting.01" name="Attaching, making connected" source="verb-connect.01" vncls="">
+			<roles>
+				<role descr="Agent doing the connecting" f="PAG" n="0"/>
+				<role descr="Patient, thing(s) being connected" f="PPT" n="1"/>
+				<note/>
+				<role descr="Instrument, string" f="" n="2"/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

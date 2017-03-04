@@ -1,0 +1,41 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="impregnate">
+		<roleset framnet="" id="impregnate.01" name="to make pregnant, full with" vncls="9.8">
+			<roles>
+				<role descr="impregnator, male" f="PAG" n="0">
+					<vnrole vncls="9.8" vntheta="Agent"/>
+				</role>
+				<role descr="thing made pregnant, woman" f="GOL" n="1">
+					<vnrole vncls="9.8" vntheta="Destination"/>
+				</role>
+				<role descr="entity arg1 is pregnant with, baby" f="PPT" n="2">
+					<vnrole vncls="9.8" vntheta="Theme"/>
+				</role>
+				<note/>
+			</roles>
+			<example name="Sentiment baby, art woman" src="Sentiment baby, art woman" type="Sentiment baby, art woman">
+				<text>
+					It suffices that I was not an exception among my compatriots, since this is a very Spanish characteristic, and [our art]-1, exponent of the Spanish spirit, was impregnated *-1 with these two sentiments.
+				</text>
+				<rel f="">
+					impregnated
+				</rel>
+				<arg f="" n="1">
+					*-1
+				</arg>
+				<arg f="" n="2">
+					with these two sentiments
+				</arg>
+				<note/>
+			</example>
+			<note>
+				Created by Claire
+			</note>
+		</roleset>
+		<note>
+			Frames file for 'impregnate' based on sentences in Webtext 2.5-2.  Verbnet entry 9.8.
+		</note>
+	</predicate>
+	<note/>
+</frameset>

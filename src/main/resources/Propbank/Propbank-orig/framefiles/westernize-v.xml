@@ -1,0 +1,41 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="westernize">
+		<roleset framnet="" id="westernize.01" name="make more western (new world)" vncls="45.4">
+			<roles>
+				<role descr="agent" f="PAG" n="0">
+					<vnrole vncls="45.4" vntheta="Agent"/>
+				</role>
+				<role descr="patient" f="PPT" n="1">
+					<vnrole vncls="45.4" vntheta="Patient"/>
+				</role>
+				<note/>
+			</roles>
+			<example name="westernize" src="" type="">
+				<text>
+					He meant that [we]-2 should first westernize, then step back [*]-2 to  look at tradition.
+				</text>
+				<arg f="" n="1">
+					we
+				</arg>
+				<arg f="mod" n="m">
+					should
+				</arg>
+				<rel f="">
+					westernize
+				</rel>
+				<arg f="tmp" n="m">
+					then step back [*]-2 to look at tradition.
+				</arg>
+				<note/>
+			</example>
+			<note>
+				Frame file created by Arrick
+			</note>
+		</roleset>
+		<note>
+			Frames file for 'westernize' based on frame file for 'activate'.  Verbnet  class 45.4, other members include activate, age, balance, blur, darken,  hasten, laminate, magnetize, revive, ripen, sicken, stabilize, sour,  tilt, unwind, whiten.
+		</note>
+	</predicate>
+	<note/>
+</frameset>

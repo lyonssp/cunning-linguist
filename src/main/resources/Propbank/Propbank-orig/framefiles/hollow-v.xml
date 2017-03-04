@@ -1,0 +1,35 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="hollow_out">
+		<roleset framnet="" id="hollow.01" name="cause to be hollow" source="" vncls="">
+			<roles>
+				<role descr="causal agent" f="PAG" n="0"/>
+				<role descr="container" f="PPT" n="1"/>
+				<note/>
+			</roles>
+			<example name="automatically generated" src="" type="">
+				<inflection aspect="ns" form="ns" person="third" tense="present" voice="active"/>
+				<text>
+					They hollow out the bat and stick the cork in there [*PRO*-1] to mask the hollow sound .
+				</text>
+				<arg f="" n="0">
+					They
+				</arg>
+				<rel f="">
+					[ hollow] [ out]
+				</rel>
+				<arg f="" n="1">
+					the bat
+				</arg>
+				<note/>
+			</example>
+			<note>
+				Frameset created by Miriam
+			</note>
+		</roleset>
+		<note>
+			Frames file for 'hollow out' based on sentences in wsj.  Verbnet entries  45.4 and 10.3, Framenet entries Emptying and Removing.
+		</note>
+	</predicate>
+	<note/>
+</frameset>

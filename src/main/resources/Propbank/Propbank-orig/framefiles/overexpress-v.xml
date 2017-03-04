@@ -1,0 +1,38 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<note/>
+	<predicate lemma="overexpress">
+		<note/>
+		<roleset framnet="" id="overexpress.01" name="excessively express a gene by producing too much of its effect or product" vncls="">
+			<roles>
+				<role descr="causal agent" f="PAG" n="0"/>
+				<note/>
+				<role descr="gene being overexpressed" f="PPT" n="1"/>
+				<role descr="MNR of expression, symptoms" f="" n="2"/>
+			</roles>
+			<note/>
+			<example name="Arg0,1,2, and LOC" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					We have overexpressed the human oxysterol receptor in Spodoptera frugiperda cells using the Baculovirus system.
+				</text>
+				<note/>
+				<arg f="" n="0">
+					We
+				</arg>
+				<rel f="">
+					overexpressed
+				</rel>
+				<arg f="" n="1">
+					the human oxysterol receptor
+				</arg>
+				<arg f="loc" n="m">
+					in Spodoptera frugiperda cells
+				</arg>
+				<arg f="" n="2">
+					using the Baculovirus system
+				</arg>
+			</example>
+		</roleset>
+	</predicate>
+</frameset>

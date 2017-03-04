@@ -1,0 +1,22 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="stressing">
+		<roleset framnet="" id="stressing.01" name="Emphasizing" vncls="9.9" source="verb-stress.01">
+			<roles>
+				<role descr="Stresser, agent" f="PAG" n="0">
+					<vnrole vncls="9.9" vntheta="Agent"/>
+				</role>
+				<role descr="Thing stressed" f="PPT" n="1">
+					<vnrole vncls="9.9" vntheta="Theme"/>
+				</role>
+				<role descr="Attribute" f="" n="2"/>
+				<note/>
+			</roles>
+			<note>
+				stress.01
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

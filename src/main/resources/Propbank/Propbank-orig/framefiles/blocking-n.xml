@@ -1,0 +1,44 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="blocking">
+		<roleset framnet="" id="blocking.01" name="Opposing, stopping up, halting" vncls="9.8 16 67" source="verb-block.01">
+			<roles>
+				<role descr="Blocker" f="PAG" n="0">
+					<vnrole vncls="9.8" vntheta="Agent"/>
+					<vnrole vncls="67" vntheta="Agent"/>
+				</role>
+				<role descr="Entity being stopped" f="" n="1">
+					<vnrole vncls="9.8" vntheta="Destination"/>
+					<vnrole vncls="16" vntheta="Patient"/>
+					<vnrole vncls="67" vntheta="Theme"/>
+				</role>
+				<role descr="Secondary predication (Arg1 stopped from what)" f="PPT" n="2">
+					<vnrole vncls="9.8" vntheta="Theme"/>
+				</role>
+				<role descr="Instrument" f="" n="3"/>
+				<note/>
+			</roles>
+			<example name="Arg0, 1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Elfabala's blocking of the proposed construction got her arrested.
+				</text>
+				<arg f="" n="0">
+					Elfabala's
+				</arg>
+				<rel f="">
+					blocking
+				</rel>
+				<arg f="" n="1">
+					of the proposed construction
+				</arg>
+				<note/>
+			</example>
+			<note>
+				block.01
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

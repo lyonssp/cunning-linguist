@@ -1,0 +1,23 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="chemoprevention">
+		<roleset framnet="" id="chemoprevention.01" name="preventing or delaying the development of cancer" source="verb-prevent.01" vncls="67">
+			<roles>
+				<role descr="agent" f="PAG" n="0">
+					<vnrole vncls="67" vntheta="Agent"/>
+				</role>
+				<role descr="theme, specific cancer whose development is being prevented" f="PPT" n="1">
+					<vnrole vncls="67" vntheta="Theme"/>
+				</role>
+				<role descr="secondary predication (e.g. from metastasizing)" f="PPT" n="2">
+					<vnrole vncls="67" vntheta="Theme"/>
+				</role>
+				<role descr="instrument (drugs, treatments, etc.)" f="" n="3"/>
+				<note/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

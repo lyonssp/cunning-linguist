@@ -1,0 +1,49 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="formulate">
+		<roleset framnet="" id="formulate.01" name="create" source="" vncls="26.4 26.1">
+			<roles>
+				<role descr="creator" f="PAG" n="0">
+					<vnrole vncls="26.4" vntheta="Agent"/>
+					<vnrole vncls="26.1" vntheta="Agent"/>
+				</role>
+				<role descr="thing created" f="PRD" n="1">
+					<vnrole vncls="26.4" vntheta="Result"/>
+					<vnrole vncls="26.1" vntheta="Product"/>
+				</role>
+				<role descr="source" f="VSP" n="2">
+					<vnrole vncls="26.4" vntheta="Material"/>
+					<vnrole vncls="26.1" vntheta="Material"/>
+				</role>
+				<role descr="benefactive" f="GOL" n="3">
+					<vnrole vncls="26.4" vntheta="Beneficiary"/>
+					<vnrole vncls="26.1" vntheta="Beneficiary"/>
+				</role>
+				<role descr="attribute, secondary predication" f="" n="4"/>
+				<note/>
+			</roles>
+			<example name="just transitive" src="" type="">
+				<text>
+					He-1 spent most of his career *trace*-1 formulating marketing    strategies, but became best-known for chipping away at ad agency    compensation.
+				</text>
+				<arg f="" n="0">
+					*trace*
+				</arg>
+				<rel f="">
+					formulating
+				</rel>
+				<arg f="" n="1">
+					marketing strategies
+				</arg>
+				<note/>
+			</example>
+			<note>
+				Higher-numbered args might or might not occur.
+			</note>
+		</roleset>
+		<note>
+			Frames file for 'formulate' based on sentences in financial  subcorpus.  No Verbnet entry.  Comparison with 'create'.
+		</note>
+	</predicate>
+	<note/>
+</frameset>

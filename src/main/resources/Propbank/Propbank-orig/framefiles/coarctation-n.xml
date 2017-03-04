@@ -1,0 +1,18 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="coarctation">
+		<roleset framnet="" id="coarctation.01" name="An abnormal narrowing or stricture of a blood vessel or other organ" source="verb-narrow.01" vncls="">
+			<roles>
+				<role descr="Cause, agent (likely rare)" f="PAG" n="0"/>
+				<role descr="Blood vessel or organ coarctated" f="PPT" n="1"/>
+				<role descr="EXT, amount narrowed by" f="" n="2"/>
+				<role descr="Start point" f="" n="3"/>
+				<role descr="End point" f="" n="4"/>
+				<note/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

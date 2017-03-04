@@ -1,0 +1,16 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="pigmentation">
+		<roleset framnet="" id="pigmentation.01" name="Adding of color or pigment to something" source="verb-pigment.01" vncls="">
+			<roles>
+				<role descr="Cause of pigmentation" f="PAG" n="0"/>
+				<role descr="Entity having or gaining pigment" f="PPT" n="1"/>
+				<note/>
+				<role descr="Pigment/color substance, if explicit" f="" n="2"/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

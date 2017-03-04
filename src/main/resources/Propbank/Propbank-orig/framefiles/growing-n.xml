@@ -1,0 +1,128 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="growing">
+		<roleset framnet="" id="growing.01" name="Increasing" vncls="45.4 45.6" source="verb-grow.01">
+			<roles>
+				<role descr="Causer of growth" f="PAG" n="0">
+					<vnrole vncls="45.4" vntheta="Agent"/>
+				</role>
+				<role descr="Thing grown" f="PPT" n="1">
+					<vnrole vncls="45.4" vntheta="Patient"/>
+					<vnrole vncls="45.6" vntheta="Patient"/>
+				</role>
+				<role descr="Amount increased by, EXT or MNR" f="EXT" n="2">
+					<vnrole vncls="45.6" vntheta="Extent"/>
+				</role>
+				<role descr="Start point" f="" n="3"/>
+				<role descr="End point" f="" n="4"/>
+				<note/>
+			</roles>
+			<example name="Arg0, 1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					His growing his portfolio was successful because he enlisted a professional financial planner.
+				</text>
+				<arg f="" n="0">
+					His
+				</arg>
+				<rel f="">
+					growing
+				</rel>
+				<arg f="" n="1">
+					his portfolio
+				</arg>
+				<note/>
+			</example>
+			<note>
+				grow.01
+			</note>
+		</roleset>
+		<roleset framnet="" id="growing.02" name="Becoming" vncls="" source="verb-grow.02">
+			<roles>
+				<role descr="Thing becoming" f="PPT" n="1"/>
+				<role descr="Thing become (end state of Arg1)" f="" n="2"/>
+				<role descr="Source, start point" f="" n="3"/>
+				<note/>
+			</roles>
+			<example name="Arg1,2,3" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					His growing tired of always shaving lead Zach to grow a full beard.
+				</text>
+				<arg f="" n="1">
+					His
+				</arg>
+				<rel f="">
+					growing
+				</rel>
+				<arg f="" n="2">
+					tired
+				</arg>
+				<arg f="" n="3">
+					of always shaving
+				</arg>
+				<note/>
+			</example>
+			<note>
+				grow.02
+			</note>
+		</roleset>
+		<roleset framnet="" id="growing.03" name="Cultivating" vncls="" source="verb-grow.03">
+			<roles>
+				<role descr="Grower" f="PAG" n="0"/>
+				<role descr="Crop" f="PPT" n="1"/>
+				<role descr="Source" f="" n="2"/>
+				<note/>
+			</roles>
+			<example name="Arg0,1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Barbara's growing turnips in her front yard got her into hot water with the homeowner's association.
+				</text>
+				<arg f="" n="0">
+					Barbara's
+				</arg>
+				<rel f="">
+					growing
+				</rel>
+				<arg f="" n="1">
+					turnips
+				</arg>
+				<arg f="loc" n="m">
+					in her front yard
+				</arg>
+				<note/>
+			</example>
+			<note>
+				grow.03
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<predicate lemma="growing_up">
+		<roleset framnet="" id="growing.04" name="Developing from child to adult" vncls="" source="verb-grow.04">
+			<roles>
+				<role descr="Person aging" f="PPT" n="1"/>
+				<note/>
+			</roles>
+			<example name="Arg1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					The situation of his growing up was not the easiest, but he always had people who loved him in his life.
+				</text>
+				<arg f="" n="1">
+					his
+				</arg>
+				<rel f="">
+					growing up
+				</rel>
+				<note/>
+			</example>
+			<note>
+				grow.04
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>
