@@ -1,0 +1,38 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="reconditioning">
+		<roleset framnet="" id="reconditioning.01" name="Re-adapting, becoming re-accustomed" vncls="41.2.2" source="verb-condition.02">
+			<roles>
+				<role descr="Causer of re-adaptation" f="PAG" n="0">
+					<vnrole vncls="41.2.2" vntheta="Agent"/>
+				</role>
+				<role descr="Entity re-adapted" f="PPT" n="1">
+					<vnrole vncls="41.2.2" vntheta="Patient"/>
+				</role>
+				<role descr="Re-dapted to" f="" n="2"/>
+				<note/>
+			</roles>
+			<example name="Arg0,1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Their reoncditioning of inspiratory muscles involves simply removing patients from the ventilator and allowing them to breathe on their own for several minutes a day.
+				</text>
+				<arg f="" n="0">
+					Their
+				</arg>
+				<rel f="">
+					reconditioning
+				</rel>
+				<arg f="" n="1">
+					of inspiratory muscles
+				</arg>
+				<note/>
+			</example>
+			<note>
+				condition.02
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

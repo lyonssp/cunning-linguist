@@ -1,0 +1,28 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<note/>
+	<predicate lemma="dampening">
+		<note/>
+		<roleset framnet="" id="dampening.01" name="making slightly wet" vncls="" source="verb-dampen.01">
+			<roles>
+				<role descr="causer of wetness, agent" f="PAG" n="0"/>
+				<note/>
+				<role descr="thing becoming damp" f="PPT" n="1"/>
+				<role descr="instrument, if separate from agent" f="" n="2"/>
+			</roles>
+			<note>
+				dampen.01
+			</note>
+		</roleset>
+		<roleset framnet="" id="dampening.02" name="causing to stop vibrating, restrain" vncls="" source="verb-dampen.02">
+			<roles>
+				<role descr="causer of non-vibration" f="PAG" n="0"/>
+				<note/>
+				<role descr="thing vibrating" f="PPT" n="1"/>
+			</roles>
+			<note>
+				dampen.02
+			</note>
+		</roleset>
+	</predicate>
+</frameset>

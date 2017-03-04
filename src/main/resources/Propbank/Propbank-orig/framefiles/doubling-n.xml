@@ -1,0 +1,18 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="doubling">
+		<roleset framnet="" id="doubling.01" name="Rising twofold" source="verb-double.01" vncls="">
+			<roles>
+				<role descr="Causer of doubling" f="PAG" n="0"/>
+				<role descr="Thing doubling" f="PPT" n="1"/>
+				<role descr="Attribute of Arg1 (in size, in price, etc.)" f="" n="2"/>
+				<role descr="Start point" f="" n="3"/>
+				<role descr="End point" f="" n="4"/>
+				<note/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

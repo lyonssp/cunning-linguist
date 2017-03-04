@@ -1,0 +1,35 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="douching">
+		<roleset framnet="" id="douching.01" name="Irrigating some part of the body (usually the vagina)" source="verb-irrigate.01" vncls="41.2.1 41.1.1">
+			<roles>
+				<role descr="Agent" f="PAG" n="0">
+					<vnrole vncls="41.2.1" vntheta="Agent"/>
+					<vnrole vncls="41.1.1" vntheta="Agent"/>
+				</role>
+				<role descr="Entity irrigated" f="PPT" n="1">
+					<vnrole vncls="41.2.1" vntheta="Patient"/>
+					<vnrole vncls="41.1.1" vntheta="Patient"/>
+				</role>
+				<role descr="Instrument" f="" n="2"/>
+				<note/>
+			</roles>
+			<example name="Arg1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Learn why doctors do not recommend vaginal douching.
+				</text>
+				<arg f="" n="1">
+					vaginal
+				</arg>
+				<rel f="">
+					douching
+				</rel>
+				<note/>
+			</example>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

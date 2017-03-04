@@ -1,0 +1,78 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="shame">
+		<roleset framnet="Experiencer_obj" id="shame.01" name="drive or impel by sense of shame" vncls="59-1">
+			<roles>
+				<role descr="causer of shame" f="PAG" n="0">
+					<vnrole vncls="59-1" vntheta="Agent"/>
+				</role>
+				<role descr="shamed agent" f="PPT" n="1">
+					<vnrole vncls="59-1" vntheta="Patient"/>
+				</role>
+				<role descr="action impelled through shame" f="PRD" n="2">
+					<vnrole vncls="59-1" vntheta="Result"/>
+				</role>
+				<note/>
+			</roles>
+			<example name="All Arguments" src="" type="">
+				<text>
+					John shamed mary into going.
+				</text>
+				<arg f="" n="0">
+					John
+				</arg>
+				<rel f="">
+					shamed
+				</rel>
+				<arg f="" n="1">
+					Mary
+				</arg>
+				<arg f="" n="2">
+					into going
+				</arg>
+				<note/>
+			</example>
+			<note>
+				Based on internet usage examples, expansion via VN. Member of Vncls force-59-1.
+			</note>
+		</roleset>
+		<roleset framnet="Experiencer_obj" id="shame.02" name="favor" vncls="31.1  33">
+			<roles>
+				<role descr="Cause of shame" f="PAG" n="0">
+					<vnrole vncls="31.1" vntheta="Stimulus"/>
+					<vnrole vncls="33" vntheta="Agent"/>
+				</role>
+				<role descr="entity shamed" f="ppt" n="1">
+					<vnrole vncls="31.1" vntheta="Experiencer"/>
+					<vnrole vncls="33" vntheta="Theme"/>
+				</role>
+				<role descr="Instrument or Grounds for shame" f="mnr" n="2">
+				</role>
+				<note/>
+			</roles>
+			<example name="transitive, with instrument" src="" type="">
+				<text>
+					John shamed his family with his cowardice.
+				</text>
+				<arg f="" n="0">
+					John
+				</arg>
+				<rel f="">
+					shamed
+				</rel>
+				<arg f="" n="1">
+					his family
+				</arg>
+				<arg f="" n="2">
+					with his cowardice
+				</arg>
+				<note/>
+			</example>
+			<note>
+				Member of Vncls amuse-31.1, judgement-33.
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

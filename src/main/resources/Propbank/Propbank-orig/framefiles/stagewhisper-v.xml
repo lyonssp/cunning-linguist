@@ -1,0 +1,37 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<note/>
+	<predicate lemma="stagewhisper">
+		<note/>
+		<roleset framnet="" id="stagewhisper.01" name="Whisper loudly so that audience can hear" source="wsj-nw" vncls="-">
+			<roles>
+				<role descr="whisperer" f="PAG" n="0"/>
+				<note/>
+				<role descr="utterance" f="PPT" n="1"/>
+				<role descr="audience, whispered-to" f="" n="2"/>
+			</roles>
+			<note>
+				Roleset based on instances in wsj-nw.  Framed by Claire, comparison to whisper.01.
+			</note>
+			<example name="Args 0 &amp; 1 only" src="wsj-nw" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					[`` She 's being attacked by the demon , '']-1 Mrs. Warren stagewhispers *T*-1 as the priest sprinkles holy water over the squirming woman , and the television camera grinds .
+				</text>
+				<note/>
+				<arg f="" n="0">
+					Mrs. Warren
+				</arg>
+				<rel f="">
+					stagewhispers
+				</rel>
+				<arg f="" n="1">
+					*T*-1
+				</arg>
+				<arg f="tmp" n="m">
+					as the priest sprinkles holy water over the squirming woman , and the television camera grinds .
+				</arg>
+			</example>
+		</roleset>
+	</predicate>
+</frameset>

@@ -1,0 +1,25 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="resorption">
+		<roleset framnet="" id="resorption.01" name="destruction of bone" source="verb-resorb.01" vncls="">
+			<roles>
+				<role descr="cause of bone loss (pathology or osteoclasts)" f="PAG" n="0"/>
+				<role descr="entity undergoing resorption" f="PPT" n="1"/>
+				<note/>
+			</roles>
+			<note/>
+		</roleset>
+		<roleset framnet="" id="resorption.02" name="absorbing again" source="verb-resorb.02" vncls="">
+			<roles>
+				<role descr="reabsorber, cause or agent" f="PAG" n="0"/>
+				<role descr="reabsorbed substance" f="PPT" n="1"/>
+				<role descr="reabsorbed into what" f="" n="2"/>
+				<role descr="reabsorbed from what (source)" f="" n="3"/>
+				<note/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

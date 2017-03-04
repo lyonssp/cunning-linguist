@@ -1,0 +1,47 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="dice">
+		<note>
+			Automatically created based on framefiles: flake (21.2)
+		</note>
+		<roleset id="dice.01" name="dice" vncls="21.2-1">
+			<roles>
+				<role descr="Agent/cause of dicing" f="PAG" n="0">
+					<vnrole vncls="21.2-1" vntheta="Agent"/>
+				</role>
+				<role descr="entity being diced" f="PPT" n="1">
+					<vnrole vncls="21.2-1" vntheta="Patient"/>
+				</role>
+				<role descr="Instrument used" f="MNR" n="2">
+					<vnrole vncls="21.2-1" vntheta="Instrument"/>
+				</role>
+				<role descr="resulting state of arg1, often prepositional" n="3">
+				</role>
+			</roles>
+			<example name="All args" src="web usage" type="">
+				<text>
+					 I diced the applies into one-inch pieces using a paring knife.
+				</text>
+				<note/>
+				<arg f="" n="0">
+					I
+				</arg>
+				<rel f="">
+					diced
+				</rel>
+				<arg f="" n="1">
+					the apples
+				</arg>
+				<arg f="" n="3">
+					into one-inch pieces
+				</arg>
+				<arg f="" n="2">
+					using a paring knife
+				</arg>
+			</example>
+			<note>
+				Edited by hwangd
+			</note>
+		</roleset>
+	</predicate>
+</frameset>

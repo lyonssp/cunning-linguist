@@ -1,0 +1,23 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+<note/>
+<predicate lemma="undermining">
+<note/>
+<roleset framnet="-" id="undermining.01" name="weaken from below" source="verb-undermine.01" vncls="-">
+<roles>
+<role descr="agent/cause" f="PAG" n="0"/>
+<note/>
+<role descr="thing weakening" f="ppt" n="1"/>
+</roles>
+<note>Added by Julia based on BOLT. No VNcls.</note>
+<example name="arg1 and MNR" src="BOLT" type="">
+<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+<text>Progressives should be against de-funding and undermining of social security , in whatever form it takes .</text>
+<note/>
+<rel f="">undermining</rel>
+<arg f="" n="1">of social security</arg>
+<arg f="mnr" n="m">in whatever form it takes</arg>
+</example>
+</roleset>
+</predicate>
+</frameset>

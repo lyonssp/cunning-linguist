@@ -1,0 +1,15 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="dorsiflexion">
+		<roleset framnet="" id="dorsiflexion.01" name="Flexion in the dorsal direction" source="verb-flex.01" vncls="">
+			<roles>
+				<role descr="Agent, flexor" f="PAG" n="0"/>
+				<role descr="Flexing part, muscle" f="PPT" n="1"/>
+				<note/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

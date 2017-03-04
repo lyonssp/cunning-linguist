@@ -1,0 +1,31 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<note/>
+	<predicate lemma="debulking">
+		<note/>
+		<roleset framnet="" id="debulking.01" name="remove as much of a malignant tumor as possible" source="debulk.01" vncls="">
+			<roles>
+				<role descr="doctor" f="PAG" n="0"/>
+				<note/>
+				<role descr="tumor" f="PPT" n="1"/>
+				<role descr="patient/benefactive" f="" n="2"/>
+			</roles>
+			<note>
+				Based on sentences in temprel 5 and stratified 1. Comparison to debulk.01-v. No VN or FN class. Framed by Katie.
+			</note>
+			<example name="literal mention of tumor as arg 1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Tumor debulking performed.
+				</text>
+				<note/>
+				<arg f="" n="1">
+					tumor
+				</arg>
+				<rel f="">
+					debulking
+				</rel>
+			</example>
+		</roleset>
+	</predicate>
+</frameset>

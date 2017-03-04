@@ -1,0 +1,36 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<note/>
+	<predicate lemma="reinstitute">
+		<note/>
+		<roleset framnet="" id="reinstitute.01" name="establish again" source="wsj-nw" vncls="-">
+			<roles>
+				<role descr="agent, entity establishing something" f="PAG" n="0"/>
+				<note>
+					For additional examples see institute.01.
+				</note>
+				<role descr="thing established" f="PPT" n="1"/>
+				<role descr="established as, attribute of arg1" f="" n="2"/>
+			</roles>
+			<note>
+				Roleset based on instances in wsj-nw.  Framed by Claire; comparison to institute.01.
+			</note>
+			<example name="" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Under attack by its own listed companies and powerful floor traders , the [New York Stock Exchange]-1 is considering PRO-1 reinstituting a `` collar '' on program trading that it abandoned last year , according to people familiar with the Big Board .
+				</text>
+				<note/>
+				<arg f="" n="0">
+					PRO-1
+				</arg>
+				<rel f="">
+					reinstituting
+				</rel>
+				<arg f="" n="1">
+					a `` collar '' on program trading that it abandoned last year
+				</arg>
+			</example>
+		</roleset>
+	</predicate>
+</frameset>

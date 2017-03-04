@@ -1,0 +1,39 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="dribbling">
+		<roleset framnet="" id="dribbling.01" name="Dripping, or letting fall in drops" source="verb-dribble.01" vncls="">
+			<roles>
+				<role descr="Dribbler" f="PAG" n="0"/>
+				<role descr="Thing being dribbled" f="PPT" n="1"/>
+				<note/>
+			</roles>
+			<example name="Arg1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					The water's dribbling through the roof caused severe damage to the carpet.
+				</text>
+				<arg f="" n="1">
+					The water's
+				</arg>
+				<rel f="">
+					dribbling
+				</rel>
+				<note/>
+			</example>
+			<note/>
+		</roleset>
+		<roleset framnet="" id="dribbling.02" name="Bouncing a ball" source="verb-bounce.01" vncls="">
+			<roles>
+				<role descr="Causer of bouncing, basketball player" f="PAG" n="0"/>
+				<role descr="Thing bouncing, basketball" f="PPT" n="1"/>
+				<role descr="Extent" f="" n="2"/>
+				<role descr="Start point" f="" n="3"/>
+				<role descr="End point" f="" n="4"/>
+				<note/>
+			</roles>
+			<note/>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

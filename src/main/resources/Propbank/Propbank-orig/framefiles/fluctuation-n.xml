@@ -1,0 +1,40 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="fluctuation">
+		<roleset framnet="" id="fluctuation.01" name="Moving randomly across some scale" vncls="45.6" source="verb-fluctuate.01">
+			<roles>
+				<role descr="Thing moving" f="PPT" n="1">
+					<vnrole vncls="45.6" vntheta="Patient"/>
+				</role>
+				<role descr="EXT or MNR" f="EXT" n="2">
+					<vnrole vncls="45.6" vntheta="Extent"/>
+				</role>
+				<role descr="Low point" f="" n="3"/>
+				<role descr="High point" f="" n="4"/>
+				<role descr="Medium" f="" n="5"/>
+				<note/>
+			</roles>
+			<example name="Arg1" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Key factors leading to the seasonal fluctuation of atmospheric CO2.
+				</text>
+				<arg f="" n="m">
+					seasonal
+				</arg>
+				<rel f="">
+					fluctuation
+				</rel>
+				<arg f="" n="1">
+					of atmospheric CO2
+				</arg>
+				<note/>
+			</example>
+			<note>
+				fluctuate.01
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

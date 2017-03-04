@@ -1,0 +1,38 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<note/>
+	<predicate lemma="bolus">
+		<note/>
+		<roleset framnet="" id="bolus.01" name="give a large one-time dose of drugs via IV" source="" vncls="">
+			<roles>
+				<role descr="doctor" f="PAG" n="0"/>
+				<note/>
+				<role descr="patient" f="PPT" n="1"/>
+				<role descr="medication" f="" n="2"/>
+				<role descr="condition treated" f="" n="3"/>
+			</roles>
+			<note>
+				Based on sentence in Temprel 5-stratified 1. No comparison. No VN or FN classes. Framed by Katie.
+			</note>
+			<example name="" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					*PR0*-1 bolused *-1 3 L NS overnight for hypertention
+				</text>
+				<note/>
+				<rel f="">
+					bolused
+				</rel>
+				<arg f="" n="2">
+					3 L NS
+				</arg>
+				<arg f="tmp" n="m">
+					overnight
+				</arg>
+				<arg f="" n="3">
+					for hypertention
+				</arg>
+			</example>
+		</roleset>
+	</predicate>
+</frameset>

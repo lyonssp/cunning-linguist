@@ -1,0 +1,44 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="binding">
+		<roleset framnet="" id="binding.01" name="Attaching tightly" vncls="22.3" source="verb-bind.01">
+			<roles>
+				<role descr="Attacher, agent" f="PAG" n="0">
+					<vnrole vncls="22.3" vntheta="Agent"/>
+				</role>
+				<role descr="Thing bound" f="PPT" n="1">
+					<vnrole vncls="22.3" vntheta="Patient"/>
+				</role>
+				<role descr="Bound to what" f="PPT" n="2">
+					<vnrole vncls="22.3" vntheta="co-patient"/>
+				</role>
+				<role descr="Instrument" f="" n="3"/>
+				<note/>
+			</roles>
+			<example name="Args0,1,2" src="" type="">
+				<inflection aspect="ns" form="ns" person="ns" tense="ns" voice="ns"/>
+				<text>
+					Their binding the boats to the pier slowed their journey considerably.
+				</text>
+				<arg f="" n="0">
+					Their
+				</arg>
+				<rel f="">
+					binding
+				</rel>
+				<arg f="" n="1">
+					the boats
+				</arg>
+				<arg f="" n="2">
+					to the pier
+				</arg>
+				<note/>
+			</example>
+			<note>
+				bind.01
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>

@@ -1,0 +1,22 @@
+<!DOCTYPE frameset SYSTEM "frameset.dtd">
+<frameset>
+	<predicate lemma="underestimation">
+		<roleset framnet="" id="underestimation.01" name="Perceiving something as having lower value than it actually has" vncls="29.2" source="verb-underestimate.01">
+			<roles>
+				<role descr="Underestimator" f="PAG" n="0">
+					<vnrole vncls="29.2" vntheta="Agent"/>
+				</role>
+				<role descr="Thing underestimated" f="PPT" n="1">
+					<vnrole vncls="29.2" vntheta="Theme"/>
+				</role>
+				<role descr="By how much" f="" n="2"/>
+				<note/>
+			</roles>
+			<note>
+				underestimate.01
+			</note>
+		</roleset>
+		<note/>
+	</predicate>
+	<note/>
+</frameset>
