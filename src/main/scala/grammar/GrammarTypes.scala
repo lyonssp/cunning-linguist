@@ -55,8 +55,13 @@ object Stress extends Enumeration {
 }
 
 object StressedPhoneme {
-  private val regex = "([a-zA-z]{1,2,3})([0-2])".r
+  private val regex = "([a-zA-z]+)([0-2])?".r
+
   def fromString(str: String): StressedPhoneme = str match {
+    case regex(phonemeString, null) => StressedPhoneme(
+      Phoneme.withName(phonemeString),
+      Stress.None
+    )
     case regex(phonemeString, stressNumber) => StressedPhoneme(
       Phoneme.withName(phonemeString),
       Stress.values.toList(stressNumber.toInt)
@@ -65,6 +70,7 @@ object StressedPhoneme {
 }
 
 case class StressedPhoneme(p: Phoneme.Phoneme, stress: Stress.Stress)
+
 case class Pronunciation(word: String, sps: Seq[StressedPhoneme])
 
 /*

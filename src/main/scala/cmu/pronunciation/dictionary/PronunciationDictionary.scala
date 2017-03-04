@@ -5,17 +5,21 @@ import grammar.{Pronunciation, StressedPhoneme}
 import scala.io.Source
 
 object PronunciationDictionary {
+  val cmuComment = """(\s*^;;;)""".r
   /*
   Parse Dictionary like CMU Pronunciation Dictionary from a file path
    */
-  def fromPath(path: String): PronunciationDictionary = {
-    def readPronunciation(line: String): Pronunciation = line.split(' ').toList match {
+  def fromSource(src: Source): PronunciationDictionary = {
+    def readPronunciation(line: String): Pronunciation = line.split("""\s+""").toList match {
       case head :: rest => Pronunciation(head, rest.map(StressedPhoneme.fromString))
-      case _ => throw new RuntimeException(s"Could not parse '$line' in file $path")
+      case _ => throw new RuntimeException(s"Could not parse '$line' in file ${src.descr}")
     }
 
     new PronunciationDictionary(
-      Source.fromFile(path).getLines().map(readPronunciation).toSeq
+      src.getLines()
+        .filter(cmuComment.findFirstMatchIn(_).isEmpty)
+        .map(readPronunciation)
+        .toSeq
     )
   }
 }
