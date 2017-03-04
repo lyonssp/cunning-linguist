@@ -18,7 +18,7 @@ object PronunciationDictionary {
       case _ => rawWord
     }
     def readPronunciation(line: String): Pronunciation = line.split("""\s+""").toList match {
-      case head :: rest => Pronunciation(cleanWord(head), rest.map(StressedPhoneme.fromString))
+      case word :: phonemes => Pronunciation(cleanWord(word), phonemes.map(StressedPhoneme.fromString))
       case _ => throw new RuntimeException(s"Could not parse '$line' in file ${src.descr}")
     }
 
