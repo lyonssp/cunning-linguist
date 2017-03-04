@@ -34,4 +34,8 @@ class MASCParserSuite extends FunSuite with Matchers {
       ("know", VB)))
   }
 
+  test ("full file parser does not exhibit exceptional behaviour") {
+    parseTrees(scala.io.Source.fromResource("110CYL067.mrg").mkString)
+  }
+
 }

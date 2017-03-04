@@ -27,4 +27,7 @@ object MASCParser {
     }))
     
   }
+
+  def parseTrees(treeStrs: String) =
+    treeStrs split ("""[\n]{2,}""") map parseTree
 }
