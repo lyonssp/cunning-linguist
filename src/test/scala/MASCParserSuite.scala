@@ -33,4 +33,5 @@ class MASCParserSuite extends FunSuite with Matchers {
       ("more", JJR), ("than", IN), ("you", PRP), ("may", MD),
       ("know", VB)))
   }
+
 }

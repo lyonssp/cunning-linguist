@@ -126,4 +126,8 @@ object PartsOfSpeech extends Enumeration {
   RPAREN = Value
 }
 
-case class TaggedSentence(taggedWords: Seq[(String, PartsOfSpeech.PartsOfSpeech)])
+case class TaggedSentence(taggedWords: Seq[(String, PartsOfSpeech.PartsOfSpeech)]) {
+
+  def tokenized: String =
+    taggedWords map { case (w, t) => t.toString ++ " " ++ w ++ " " } mkString
+}
