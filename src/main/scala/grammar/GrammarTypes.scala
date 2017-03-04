@@ -1,6 +1,8 @@
-import POS.POS
-import Phoneme.Phoneme
-import Stress.Stress
+package grammar
+
+import grammar.POS.POS
+import grammar.Phoneme.Phoneme
+import grammar.Stress.Stress
 
 //Phonemes
 object Phoneme extends Enumeration {
@@ -50,13 +52,22 @@ object Phoneme extends Enumeration {
 //Phoneme stress type
 object Stress extends Enumeration {
   type Stress = Value
-  val None,
-  Primry,
+  val
+  None,
+  Primary,
   Secondary = Value
 }
 
-case class StressedPhoneme(p: Phoneme, stress: Option[Stress])
-
+object StressedPhoneme {
+  private val regex = "([a-zA-z]{1,2,3})([0-2])".r
+  def fromString(str: String): StressedPhoneme = str match {
+    case regex(phonemeString, stressNumber) => StressedPhoneme(
+      Phoneme.withName(phonemeString),
+      Stress.values.toList(stressNumber.toInt)
+    )
+  }
+}
+case class StressedPhoneme(p: Phoneme, stress: Stress)
 case class Pronunciation(word: String, sps: Seq[StressedPhoneme])
 
 /*
@@ -67,7 +78,6 @@ case class Pronunciation(word: String, sps: Seq[StressedPhoneme])
 )
  */
 object POS extends Enumeration {
-
   type POS = Value
   val
   CC,
