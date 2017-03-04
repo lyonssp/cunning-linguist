@@ -1,6 +1,7 @@
 import scala.util.Try
 
 import grammar._
+import PartsOfSpeech._
 
 object MASCParser {
 
@@ -15,13 +16,13 @@ object MASCParser {
     }
 
     def go(
-      sentence: Vector[(String, POS.POS)],
+      sentence: Vector[(String, PartsOfSpeech)],
       tokens: Seq[String])
-        : Vector[(String, POS.POS)] =
+        : Vector[(String, PartsOfSpeech)] =
       tokens match {
         case Seq() => sentence
-        case (posStr +: word +: rest) if Try(POS.withName(posStr)).isSuccess =>
-          go(sentence :+ (word, POS.withName(posStr)), rest)
+        case (posStr +: word +: rest) if Try(PartsOfSpeech.withName(posStr)).isSuccess =>
+          go(sentence :+ (word, PartsOfSpeech.withName(posStr)), rest)
         case (t +: ts) => go(sentence, ts)
       }
     TaggedSentence(go(Vector(), tokenized))

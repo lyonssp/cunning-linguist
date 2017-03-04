@@ -3,7 +3,8 @@ import Matchers._
 
 import MASCParser._
 import grammar._
-import POS._
+import PartsOfSpeech._
+
 
 class MASCParserSuite extends FunSuite with Matchers {
 
