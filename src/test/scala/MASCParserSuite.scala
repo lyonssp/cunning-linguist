@@ -2,9 +2,10 @@ import org.scalatest._
 import Matchers._
 
 import MASCParser._
+import grammar._
 import POS._
 
-class MASCParserSuite extends FunSuite with Matchers{
+class MASCParserSuite extends FunSuite with Matchers {
 
   test ("shallow example from file") {
     parseTree("( (NP-TMP (NNP December) (CD 1998)))") shouldBe

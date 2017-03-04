@@ -1,6 +1,6 @@
 package grammar
 
-import grammar.POS.POS
+//import grammar.POS.POS
 import grammar.Phoneme.Phoneme
 import grammar.Stress.Stress
 
@@ -67,7 +67,8 @@ object StressedPhoneme {
     )
   }
 }
-case class StressedPhoneme(p: Phoneme, stress: Stress)
+
+case class StressedPhoneme(p: Phoneme.Phoneme, stress: Stress.Stress)
 case class Pronunciation(word: String, sps: Seq[StressedPhoneme])
 
 /*
@@ -123,4 +124,4 @@ object POS extends Enumeration {
   RPAREN = Value
 }
 
-case class TaggedSentence(taggedWords: Seq[(String, POS)])
+case class TaggedSentence(taggedWords: Seq[(String, POS.POS)])

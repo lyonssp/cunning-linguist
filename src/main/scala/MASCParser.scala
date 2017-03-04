@@ -1,6 +1,6 @@
 import scala.util.Try
 
-import POS._
+import grammar._
 
 object MASCParser {
 
@@ -15,9 +15,9 @@ object MASCParser {
     }
 
     def go(
-      sentence: Vector[(String, POS)],
+      sentence: Vector[(String, POS.POS)],
       tokens: Seq[String])
-        : Vector[(String, POS)] =
+        : Vector[(String, POS.POS)] =
       tokens match {
         case Seq() => sentence
         case (posStr +: word +: rest) if Try(POS.withName(posStr)).isSuccess =>
