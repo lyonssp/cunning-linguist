@@ -6,15 +6,6 @@ import PartsOfSpeech._
 object MASCParser {
 
   def parseTree(treeStr: String): TaggedSentence = {
-    val tokenized = treeStr
-      .filterNot( "()".contains(_) )
-      .map { c => if ("\n\t".contains(c)) ' ' else c }
-      .split(' ').filterNot(_ == "").map {
-      case "PRP$" => "PRPS"
-      case "WP$" => "WP$"
-      case a => a
-    }
-
     def go(
       sentence: Vector[(String, PartsOfSpeech)],
       tokens: Seq[String])
@@ -25,6 +16,15 @@ object MASCParser {
           go(sentence :+ (word, PartsOfSpeech.withName(posStr)), rest)
         case (t +: ts) => go(sentence, ts)
       }
-    TaggedSentence(go(Vector(), tokenized))
+
+    TaggedSentence(go(Vector(), treeStr
+      .filterNot( "()".contains(_) )
+      .map { c => if ("\n\t".contains(c)) ' ' else c }
+      .split(' ').filterNot(_ == "").map {
+      case "PRP$" => "PRPS"
+      case "WP$" => "WP$"
+      case a => a
+    }))
+    
   }
 }
