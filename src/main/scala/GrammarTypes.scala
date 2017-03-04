@@ -84,10 +84,10 @@ case class WDT extends POS
 case class WP extends POS
 case class WP$ extends POS
 case class WRB extends POS
-/*
-.	punctuation mark, sentence closer	.;?* 
-,	punctuation mark, comma	, 
-:	punctuation mark, colon	: 
-(	contextual separator, left paren	( 
-)
- */
+case class PERIOD extends POS // .
+case class COMMA extends POS  // ,
+case class COLON extends POS // :
+case class LPAREN extends POS // (
+case class RPAREN extends POS // )
+
+case class TaggedSentence(taggedWords: Seq[(String, POS)])
