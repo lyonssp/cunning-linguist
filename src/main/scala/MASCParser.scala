@@ -45,7 +45,8 @@ object MASCParser {
 
   def wordsPOS(tss: Seq[TaggedSentence]): Map[PartsOfSpeech, Seq[String]] = {
     val tagWords: Seq[(String, PartsOfSpeech)] = tss flatMap (_.taggedWords)
-    tagWords groupBy (_._2) mapValues (vals => (vals map (_._1.toLowerCase)).distinct)
+    val tmp = tagWords groupBy (_._2) mapValues (vals => (vals map (_._1.toLowerCase)).distinct)
+    tmp.updated(COMMA, Seq(",")).updated(PERIOD, Seq(".")).updated(COLON, Seq(":"))
   }
 
 }

@@ -31,7 +31,7 @@ class MASCParserSuite extends FunSuite with Matchers {
       ("Your", PRPS), ("contribution", NN), ("to", TO),
       ("Goodwill", NNP), ("will", MD), ("mean", VB),
       ("more", JJR), ("than", IN), ("you", PRP), ("may", MD),
-      ("know", VB)))
+      ("know", VB), ("PERIOD", PERIOD)))
   }
 
   test ("full file parser does not exhibit exceptional behaviour") {

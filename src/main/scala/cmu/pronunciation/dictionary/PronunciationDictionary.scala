@@ -37,6 +37,9 @@ object PronunciationDictionary {
         .filter(cmuComment.findFirstMatchIn(_).isEmpty)
         .map(readPronunciation)
         .toMap
+        .updated(",", Pronunciation(Seq()))
+        .updated(".", Pronunciation(Seq()))
+        .updated(":", Pronunciation(Seq()))
     )
   }
 
