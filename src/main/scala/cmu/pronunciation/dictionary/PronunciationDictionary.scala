@@ -1,9 +1,5 @@
 package cmu.pronunciation.dictionary
 
-import cats.instances.int._
-import cats.instances.map._
-import cats.Monoid
-
 import grammar.Phoneme.Phoneme
 import grammar.{Pronunciation, StressedPhoneme}
 
@@ -48,6 +44,8 @@ object PronunciationDictionary {
 }
 
 case class PronunciationDictionary(pronunciations: Map[String, Pronunciation]) {
+  def contains(word: String): Boolean = pronunciations.contains(PronunciationDictionary.normalizeWord(word))
+
   def getWord(word: String): Option[Pronunciation] = pronunciations.get(PronunciationDictionary.normalizeWord(word))
 
   def getPhonemes(word: String): Option[Seq[StressedPhoneme]] = this.getWord(word).map(_.phonemes)
