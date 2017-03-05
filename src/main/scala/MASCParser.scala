@@ -1,3 +1,4 @@
+import java.io.File
 import scala.util.Try
 
 import grammar._
@@ -28,7 +29,13 @@ object MASCParser {
     
   }
 
-  def parseTrees(treeStrs: String) =
+  def parseTrees(treeStrs: String): Seq[TaggedSentence] =
     treeStrs split ("""[\n]{2,}""") map parseTree
-  
+
+  def readAll: Seq[TaggedSentence] = 
+    (new File("src/main/resources/Propbank"))
+      .listFiles
+      .map(scala.io.Source.fromFile(_).mkString)
+      .flatMap(parseTrees)
+
 }
