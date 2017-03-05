@@ -2,6 +2,9 @@ package grammar
 
 //Phonemes
 object Phoneme extends Enumeration {
+  def isVowel(p: Phoneme): Boolean =
+    Set(AA, AE, AH, AO,  AW, AY, EH, ER, EY, IH, IY, OW, OY, UH, UW, V) contains p
+
   type Phoneme = Value
   val
   AA,

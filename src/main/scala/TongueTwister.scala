@@ -5,6 +5,7 @@ import cats.instances.map._
 import cats.Monoid
 
 import grammar._
+import GrammarUtils._
 import Phoneme._
 import PartsOfSpeech._
 
@@ -24,17 +25,27 @@ object TongueTwister {
       words map (word2pronunciation.getHistogram(_).getOrElse(Map[Phoneme,Int]()))
     )
 
-  def chooseNextWord(
-    posWordMap: Map[PartsOfSpeech, Seq[String]],
-    word2pronunciation: PronunciationDictionary)
-    (
-      sentence: Seq[String],
-      nextTag: PartsOfSpeech): Seq[String] = {
+  def evaluateCandidateWord(word2pron: PronunciationDictionary, history: Seq[String])(candidate: String): (Seq[String], Double) = {
+    val sentence = history :+ candidate
+    val ent = entropy(countPhonemes(word2pron)(sentence))
+    val unstressed = word2pron.getUnstressedPhonemes(candidate) getOrElse (Seq[Phoneme]())
+    val nPhonemes = unstressed size
+    val vowelCounts = unstressed count isVowel
+    val vowelRatio = vowelCounts.toDouble / nPhonemes
+    
+    val repetitionPenalty = if (history contains candidate) 10.0 else 1.0
+    val vowelPenalty = if (vowelRatio >= 0.25) 10.0 else 1.0
+    val penalty = List(repetitionPenalty, vowelPenalty).reduce(_*_)
+    (sentence, penalty*ent)
+  }
+
+
+  def chooseNextWord(posWordMap: Map[PartsOfSpeech, Seq[String]], word2pron: PronunciationDictionary)(sentence: Seq[String], nextTag: PartsOfSpeech): Seq[String] = {
 
     val candidateWords = posWordMap(nextTag)
     candidateWords
-      .map(w => (sentence :+ w, (if (sentence.contains(w)) 10.0 else 1.0)*entropy(countPhonemes(word2pronunciation)(sentence :+ w))))
-      .minBy (_._2)
+      .map(evaluateCandidateWord(word2pron, sentence))
+      .minBy(_._2)
       ._1
   }
 
