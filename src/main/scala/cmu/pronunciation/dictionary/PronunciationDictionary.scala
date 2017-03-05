@@ -1,5 +1,6 @@
 package cmu.pronunciation.dictionary
 
+import grammar.Phoneme.Phoneme
 import grammar.{Pronunciation, StressedPhoneme}
 
 import scala.io.Source
@@ -40,4 +41,28 @@ object PronunciationDictionary {
 
 case class PronunciationDictionary(pronunciations: Map[String, Pronunciation]) {
   def getWord(word: String): Option[Pronunciation] = pronunciations.get(PronunciationDictionary.normalizeWord(word))
+
+  def getPhonemes(word: String): Option[Seq[StressedPhoneme]] = this.getWord(word) match {
+    case Some(pronunciation) => Some(pronunciation.phonemes)
+    case None => None
+  }
+
+  def getUnstressedPhonemes(word: String): Option[Seq[Phoneme]] = this.getPhonemes(word) match {
+    case Some(stressedPhonemes) => Some(stressedPhonemes.map(_.p))
+    case None => None
+  }
+
+  def getHistogram(word: String): Option[Map[Phoneme, Int]] = this.getUnstressedPhonemes(word) match {
+    case Some(phonemes) => Some(
+      phonemes.foldLeft(Map.empty[Phoneme, Int]) {
+        case (map, phoneme) => if (map.contains(phoneme)) {
+          map.updated(phoneme, map(phoneme) + 1)
+        } else {
+          map.updated(phoneme, 1)
+        }
+      }
+    )
+    case None => None
+  }
+
 }
