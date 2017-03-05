@@ -34,6 +34,8 @@ object PronunciationDictionary {
       case _ => throw new RuntimeException(s"Could not parse '$line' in file ${src.descr}")
     }
 
+
+
     new PronunciationDictionary(
       src.getLines()
         .filter(cmuComment.findFirstMatchIn(_).isEmpty)
@@ -41,6 +43,8 @@ object PronunciationDictionary {
         .toMap
     )
   }
+
+  def CMU: PronunciationDictionary = fromSource(scala.io.Source.fromResource("cmu-pronunciation/cmudict-0.7b"))
 }
 
 case class PronunciationDictionary(pronunciations: Map[String, Pronunciation]) {
@@ -52,7 +56,7 @@ case class PronunciationDictionary(pronunciations: Map[String, Pronunciation]) {
 
   def getHistogram(word: String): Option[Map[Phoneme, Int]] =
     this.getUnstressedPhonemes(word).map { phonemes =>
-      Monoid[Map[Phoneme, Int]].combineAll(phonemes map { p => Map[Phoneme,Int](p -> 1) })
+      phonemes.groupBy((p: Phoneme) => p).mapValues(_.length)
     }
 
 
