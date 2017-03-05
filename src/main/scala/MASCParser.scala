@@ -38,4 +38,11 @@ object MASCParser {
       .map(scala.io.Source.fromFile(_).mkString)
       .flatMap(parseTrees)
 
+  def POSTemplates(tss: Seq[TaggedSentence]): Seq[Seq[PartsOfSpeech]] = tss map (_.tags)
+
+  def wordsPOS(tss: Seq[TaggedSentence]) = {
+    val tagWords: Seq[(String, PartsOfSpeech)] = tss flatMap (_.taggedWords)
+    tagWords groupBy (_._2) mapValues (_ map (_._1))
+  }
+
 }
