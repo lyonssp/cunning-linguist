@@ -38,14 +38,16 @@ object TongueTwister {
       ._1
   }
 
-  def randomTemplate(templates: Seq[Seq[PartsOfSpeech]]): Seq[PartsOfSpeech] = {
-    val n = templates.size
-    templates(scala.util.Random.nextInt(n))
-  }
+  def randomTemplate(templates: Seq[Seq[PartsOfSpeech]]): Seq[PartsOfSpeech] =
+    templates(scala.util.Random.nextInt(templates.size))
 
-  def randomTongueTwister: Seq[String] = {
+  def randomTagged(tss: Seq[TaggedSentence]): TaggedSentence =
+    tss(scala.util.Random.nextInt(tss.size))
+
+  def randomTongueTwister: (Seq[String],Seq[String]) = {
     val folder = chooseNextWord(posWordMap, pronunciationDict) _
-    randomTemplate(allTemplates).foldLeft(Seq[String]())(folder)
+    val (sent, temp) = randomTagged(allTagged).taggedWords.unzip
+    (sent, temp.foldLeft(Seq[String]())(folder))
   }
 
   val pronunciationDict = PronunciationDictionary.CMU

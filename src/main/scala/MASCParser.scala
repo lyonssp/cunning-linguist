@@ -24,6 +24,9 @@ object MASCParser {
       .split(' ').filterNot(_ == "").map {
       case "PRP$" => "PRPS"
       case "WP$" => "WP$"
+      case "." => "PERIOD"
+      case "," => "COMMA"
+      case ":" => "COLON"
       case a => a
     }))
     
