@@ -40,9 +40,9 @@ object MASCParser {
 
   def POSTemplates(tss: Seq[TaggedSentence]): Seq[Seq[PartsOfSpeech]] = tss map (_.tags)
 
-  def wordsPOS(tss: Seq[TaggedSentence]) = {
+  def wordsPOS(tss: Seq[TaggedSentence]): Map[PartsOfSpeech, Seq[String]] = {
     val tagWords: Seq[(String, PartsOfSpeech)] = tss flatMap (_.taggedWords)
-    tagWords groupBy (_._2) mapValues (_ map (_._1))
+    tagWords groupBy (_._2) mapValues (vals => (vals map (_._1.toLowerCase)).distinct)
   }
 
 }

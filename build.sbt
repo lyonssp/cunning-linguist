@@ -17,6 +17,8 @@ libraryDependencies += "org.scalanlp" %% "breeze-natives" % "0.13"
 // It depends on LGPL code
 libraryDependencies += "org.scalanlp" %% "breeze-viz" % "0.13"
 
+libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
+
 // testing
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"

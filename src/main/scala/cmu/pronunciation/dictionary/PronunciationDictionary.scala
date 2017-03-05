@@ -1,5 +1,9 @@
 package cmu.pronunciation.dictionary
 
+import cats.instances.int._
+import cats.instances.map._
+import cats.Monoid
+
 import grammar.Phoneme.Phoneme
 import grammar.{Pronunciation, StressedPhoneme}
 
@@ -42,27 +46,14 @@ object PronunciationDictionary {
 case class PronunciationDictionary(pronunciations: Map[String, Pronunciation]) {
   def getWord(word: String): Option[Pronunciation] = pronunciations.get(PronunciationDictionary.normalizeWord(word))
 
-  def getPhonemes(word: String): Option[Seq[StressedPhoneme]] = this.getWord(word) match {
-    case Some(pronunciation) => Some(pronunciation.phonemes)
-    case None => None
-  }
+  def getPhonemes(word: String): Option[Seq[StressedPhoneme]] = this.getWord(word).map(_.phonemes)
 
-  def getUnstressedPhonemes(word: String): Option[Seq[Phoneme]] = this.getPhonemes(word) match {
-    case Some(stressedPhonemes) => Some(stressedPhonemes.map(_.p))
-    case None => None
-  }
+  def getUnstressedPhonemes(word: String): Option[Seq[Phoneme]] = this.getPhonemes(word).map(_.map(_.p))
 
-  def getHistogram(word: String): Option[Map[Phoneme, Int]] = this.getUnstressedPhonemes(word) match {
-    case Some(phonemes) => Some(
-      phonemes.foldLeft(Map.empty[Phoneme, Int]) {
-        case (map, phoneme) => if (map.contains(phoneme)) {
-          map.updated(phoneme, map(phoneme) + 1)
-        } else {
-          map.updated(phoneme, 1)
-        }
-      }
-    )
-    case None => None
-  }
+  def getHistogram(word: String): Option[Map[Phoneme, Int]] =
+    this.getUnstressedPhonemes(word).map { phonemes =>
+      Monoid[Map[Phoneme, Int]].combineAll(phonemes map { p => Map[Phoneme,Int](p -> 1) })
+    }
+
 
 }
