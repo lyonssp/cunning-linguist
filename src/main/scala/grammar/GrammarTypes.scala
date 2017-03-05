@@ -128,6 +128,11 @@ object PartsOfSpeech extends Enumeration {
 
 case class TaggedSentence(taggedWords: Seq[(String, PartsOfSpeech.PartsOfSpeech)]) {
 
+  def toLower: TaggedSentence =
+    TaggedSentence(taggedWords map { case (w, t) => (w.toLowerCase, t) })
+
   def tokenized: String =
     taggedWords map { case (w, t) => t.toString ++ " " ++ w ++ " " } mkString
+
+  def tags: Seq[PartsOfSpeech.PartsOfSpeech] = taggedWords map (_._2)
 }
