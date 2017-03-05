@@ -71,7 +71,7 @@ object StressedPhoneme {
 
 case class StressedPhoneme(p: Phoneme.Phoneme, stress: Stress.Stress)
 
-case class Pronunciation(word: String, sps: Seq[StressedPhoneme])
+case class Pronunciation(phonemes: Seq[StressedPhoneme])
 
 /*
 .	punctuation mark, sentence closer	.;?* 
