@@ -1,5 +1,7 @@
 package grammar
 
+import grammar.PartsOfSpeech.PartsOfSpeech
+
 //Phonemes
 object Phoneme extends Enumeration {
   def isVowel(p: Phoneme): Boolean =
@@ -129,13 +131,25 @@ object PartsOfSpeech extends Enumeration {
   RPAREN = Value
 }
 
-case class TaggedSentence(taggedWords: Seq[(String, PartsOfSpeech.PartsOfSpeech)]) {
+case class Word(raw: String) {
+  def tag(partOfSpeech: PartsOfSpeech): TaggedWord = TaggedWord(raw, partOfSpeech)
 
-  def toLower: TaggedSentence =
-    TaggedSentence(taggedWords map { case (w, t) => (w.toLowerCase, t) })
+  def toLowerCase: Word = Word(raw.toLowerCase)
+}
 
-  def tokenized: String =
-    taggedWords map { case (w, t) => t.toString ++ " " ++ w ++ " " } mkString
+case class TaggedWord(raw: String, tag: PartsOfSpeech) {
+  def toLowerCase: TaggedWord = TaggedWord(raw.toLowerCase, tag)
+}
 
-  def tags: Seq[PartsOfSpeech.PartsOfSpeech] = taggedWords map (_._2)
+case class TaggedSentence(taggedWords: Seq[TaggedWord]) {
+
+  def toLower: TaggedSentence = TaggedSentence(
+    taggedWords map { case TaggedWord(w, t) => TaggedWord(w.toLowerCase, t) }
+  )
+
+  def tokenized: String = taggedWords map {
+    case TaggedWord(w, t) => t.toString ++ " " ++ w ++ " "
+  } mkString
+
+  def tags: Seq[PartsOfSpeech.PartsOfSpeech] = taggedWords map (_.tag)
 }

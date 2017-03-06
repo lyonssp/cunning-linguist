@@ -1,10 +1,7 @@
-import org.scalacheck.Gen
-import Gen._
-
-import grammar._
-import PartsOfSpeech._
-
 import GrammarGens._
+import grammar._
+import org.scalacheck.Gen
+import org.scalacheck.Gen._
 
 object MASCParserGens {
 
@@ -13,13 +10,13 @@ object MASCParserGens {
       sent <- genSentence
       tags <- listOfN(sent.size, genPOSTag)
     } yield {
-      TaggedSentence(sent zip tags)
+      TaggedSentence(sent zip tags map { case (s, t) => TaggedWord(s, t) })
     }
 
   def intersperseTokens: Gen[String] =
     for {
       ts <- genTaggedSentence
-      (w, t) <- ts map (_.taggedWords.unzip)
+      (w, t) <- (ts.taggedWords map { case TaggedWord(w, t) => (w, t) }).unzip
       maybeTok1 <- oneOf("", "TOKEN")
       maybeTok2 <- oneOf("", "TOKEN")
     } yield {

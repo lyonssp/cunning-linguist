@@ -9,7 +9,7 @@ import GrammarUtils._
 import Phoneme._
 import PartsOfSpeech._
 
-import MASCParser._
+import masc.parse.MASCParser._
 import cmu.pronunciation.dictionary._
 
 object TongueTwister {
@@ -57,13 +57,15 @@ object TongueTwister {
 
   def randomTongueTwister: (Seq[String],Seq[String]) = {
     val folder = chooseNextWord(posWordMap, pronunciationDict) _
-    val (sent, temp) = randomTagged(allTagged).taggedWords.unzip
-    (sent, temp.foldLeft(Seq[String]())(folder))
+    val (sentence, temp) = randomTagged(allTagged).taggedWords.map({
+      case TaggedWord(raw, tag) => (raw,tag)
+    }).unzip
+    (sentence, temp.foldLeft(Seq[String]())(folder))
   }
 
   val pronunciationDict = PronunciationDictionary.CMU
   val allTagged = readAll
   val allTemplates = POSTemplates(allTagged)
-  val posWordMap = wordsPOS(allTagged) mapValues (_ filter (pronunciationDict.contains(_)))
+  val posWordMap = wordsPOS(allTagged) mapValues (_ filter pronunciationDict.contains)
 
 }
