@@ -164,4 +164,6 @@ case class TaggedSentence(taggedWords: Seq[TaggedWord]) {
   } mkString
 
   def template: SentenceTemplate = SentenceTemplate(taggedWords map (_.tag))
+
+  override def toString: String = taggedWords map(_.word.toString) mkString " "
 }
