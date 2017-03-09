@@ -106,7 +106,6 @@ object PartsOfSpeech extends Enumeration {
   PDT,
   POS,
   PRP,
-  PRPS,
   RB,
   RBR,
   RBS,
@@ -122,13 +121,14 @@ object PartsOfSpeech extends Enumeration {
   VBG,
   WDT,
   WP,
-  WPS,
   WRB,
-  PERIOD,
-  COMMA,
-  COLON,
   LPAREN,
   RPAREN = Value
+  val PRPS = Value("PRP$")
+  val WPS = Value("WP$")
+  val PERIOD = Value(".")
+  val COMMA = Value(",")
+  val COLON = Value(":")
 }
 
 case class Word(raw: String) {

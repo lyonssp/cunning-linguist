@@ -22,14 +22,7 @@ object MASCParser {
         treeStr
           .filterNot("()".contains(_))
           .map { c => if ("\n\t".contains(c)) ' ' else c }
-          .split(' ').filterNot(_ == "").map {
-          case "PRP$" => "PRPS"
-          case "WP$" => "WP$"
-          case "." => "PERIOD"
-          case "," => "COMMA"
-          case ":" => "COLON"
-          case a => a
-        }
+          .split(' ').filterNot(_ == "")
       )
     )
 

@@ -39,7 +39,7 @@ class MASCParserSuite extends FunSuite with Matchers {
           Word("you").tag(PRP),
           Word("may").tag(MD),
           Word("know").tag(VB),
-          Word("PERIOD").tag(PERIOD)
+          Word(".").tag(PERIOD)
         )
       )
   }
