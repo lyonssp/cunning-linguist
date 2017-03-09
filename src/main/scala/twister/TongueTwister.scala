@@ -58,14 +58,14 @@ object TongueTwister {
   def randomTagged(tss: Seq[TaggedSentence]): Gen[TaggedSentence] =
     oneOf(tss)
 
-  def randomTongueTwister(sentenceTemplate: SentenceTemplate): TaggedSentence = {
+  def templateToTwister(sentenceTemplate: SentenceTemplate): TaggedSentence = {
     val folder = chooseNextWord(posWordMap, pronunciationDict)(_: Seq[Word])(_: PartsOfSpeech)
     sentenceTemplate.fill(folder)
   }
 
   def tongueTwisterWithHistory: Gen[(TaggedSentence, TaggedSentence)] =
-    for { sentenceSource <- randomTagged(allTagged) }
-    yield { (sentenceSource, randomTongueTwister(sentenceSource.template)) }
+    for { sentenceSource <- randomTagged(allTagged).filter(!_.isEmpty) }
+    yield { (sentenceSource, templateToTwister(sentenceSource.template)) }
 
   val pronunciationDict = PronunciationDictionary.CMU
   val allTagged = readAll
