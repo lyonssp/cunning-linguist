@@ -1,16 +1,16 @@
-import scala.math.log
+package twister
 
+import cats.Monoid
 import cats.instances.int._
 import cats.instances.map._
-import cats.Monoid
-
-import grammar._
-import GrammarUtils._
-import Phoneme._
-import PartsOfSpeech._
-
-import masc.parse.MASCParser._
 import cmu.pronunciation.dictionary._
+import grammar.GrammarUtils._
+import grammar.PartsOfSpeech._
+import grammar.Phoneme._
+import grammar._
+import masc.parse.MASCParser._
+
+import scala.math.log
 
 object TongueTwister {
 
