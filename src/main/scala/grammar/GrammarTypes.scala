@@ -5,7 +5,7 @@ import grammar.PartsOfSpeech.PartsOfSpeech
 //Phonemes
 object Phoneme extends Enumeration {
   def isVowel(p: Phoneme): Boolean =
-    Set(AA, AE, AH, AO,  AW, AY, EH, ER, EY, IH, IY, OW, OY, UH, UW, V) contains p
+    Set(AA, AE, AH, AO, AW, AY, EH, ER, EY, IH, IY, OW, OY, UH, UW, V) contains p
 
   type Phoneme = Value
   val
@@ -132,13 +132,25 @@ object PartsOfSpeech extends Enumeration {
 }
 
 case class Word(raw: String) {
-  def tag(partOfSpeech: PartsOfSpeech): TaggedWord = TaggedWord(raw, partOfSpeech)
+  def tag(partOfSpeech: PartsOfSpeech): TaggedWord = TaggedWord(this, partOfSpeech)
 
   def toLowerCase: Word = Word(raw.toLowerCase)
+
+  override def toString: String = raw
 }
 
-case class TaggedWord(raw: String, tag: PartsOfSpeech) {
-  def toLowerCase: TaggedWord = TaggedWord(raw.toLowerCase, tag)
+case class SentenceTemplate(template: Seq[PartsOfSpeech]) {
+  def fill(filler: (Seq[Word], PartsOfSpeech) => Seq[Word]): TaggedSentence = TaggedSentence(
+    template.foldLeft(Seq[Word]())({
+      case (sentenceSoFar, nextPartOfSpeech) => filler(sentenceSoFar, nextPartOfSpeech)
+    }).zip(template).map({
+      case (w: Word, p: PartsOfSpeech) => TaggedWord(w, p)
+    })
+  )
+}
+
+case class TaggedWord(word: Word, tag: PartsOfSpeech) {
+  def toLowerCase: TaggedWord = TaggedWord(word.toLowerCase, tag)
 }
 
 case class TaggedSentence(taggedWords: Seq[TaggedWord]) {
@@ -148,8 +160,8 @@ case class TaggedSentence(taggedWords: Seq[TaggedWord]) {
   )
 
   def tokenized: String = taggedWords map {
-    case TaggedWord(w, t) => t.toString ++ " " ++ w ++ " "
+    case TaggedWord(w, t) => t.toString ++ " " ++ w.toString ++ " "
   } mkString
 
-  def tags: Seq[PartsOfSpeech.PartsOfSpeech] = taggedWords map (_.tag)
+  def template: SentenceTemplate = SentenceTemplate(taggedWords map (_.tag))
 }

@@ -1,7 +1,7 @@
 package cmu.pronunciation.dictionary
 
 import grammar.Phoneme.Phoneme
-import grammar.{Pronunciation, StressedPhoneme}
+import grammar.{Pronunciation, StressedPhoneme, Word}
 
 import scala.io.Source
 
@@ -46,19 +46,26 @@ object PronunciationDictionary {
   def CMU: PronunciationDictionary = fromSource(scala.io.Source.fromResource("cmu-pronunciation/cmudict-0.7b"))
 }
 
+//TODO would prefer not to duplicate operations for Word and String
 case class PronunciationDictionary(pronunciations: Map[String, Pronunciation]) {
-  def contains(word: String): Boolean = pronunciations.contains(PronunciationDictionary.normalizeWord(word))
+  def contains(word: Word): Boolean = this.contains(word.raw)
+  def contains(word: String): Boolean = pronunciations.contains(
+    PronunciationDictionary.normalizeWord(word)
+  )
 
-  def getWord(word: String): Option[Pronunciation] = pronunciations.get(PronunciationDictionary.normalizeWord(word))
+  def getWord(word: Word): Option[Pronunciation] = this.getWord(word.raw)
+  def getWord(rawWord: String): Option[Pronunciation] = pronunciations.get(
+    PronunciationDictionary.normalizeWord(rawWord)
+  )
 
+  def getPhonemes(word: Word): Option[Seq[StressedPhoneme]] = this.getPhonemes(word.raw)
   def getPhonemes(word: String): Option[Seq[StressedPhoneme]] = this.getWord(word).map(_.phonemes)
 
+  def getUnstressedPhonemes(word: Word): Option[Seq[Phoneme]] = this.getUnstressedPhonemes(word.raw)
   def getUnstressedPhonemes(word: String): Option[Seq[Phoneme]] = this.getPhonemes(word).map(_.map(_.p))
 
-  def getHistogram(word: String): Option[Map[Phoneme, Int]] =
-    this.getUnstressedPhonemes(word).map { phonemes =>
-      phonemes.groupBy((p: Phoneme) => p).mapValues(_.length)
-    }
-
-
+  def getHistogram(word: Word): Option[Map[Phoneme, Int]] = this.getHistogram(word.raw)
+  def getHistogram(word: String): Option[Map[Phoneme, Int]] = this.getUnstressedPhonemes(word).map {
+    phonemes => phonemes.groupBy((p: Phoneme) => p).mapValues(_.length)
+  }
 }

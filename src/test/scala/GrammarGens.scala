@@ -8,8 +8,8 @@ object GrammarGens {
 
   def genPOSTag: Gen[PartsOfSpeech] = Gen.oneOf(PartsOfSpeech.values.toList)
 
-  def genWord: Gen[String] = nonEmptyListOf(alphaChar) map (_.mkString)
+  def genWord: Gen[Word] = nonEmptyListOf(alphaChar) map (chars => Word(chars.mkString))
 
-  def genSentence: Gen[Seq[String]] = nonEmptyListOf(genWord)
+  def genSentence: Gen[Seq[Word]] = nonEmptyListOf(genWord)
 
 }

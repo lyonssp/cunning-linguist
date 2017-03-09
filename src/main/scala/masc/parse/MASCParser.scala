@@ -9,13 +9,12 @@ import scala.util.Try
 object MASCParser {
 
   def parseTree(treeStr: String): TaggedSentence = {
-    def go(sentence: Vector[TaggedWord], tokens: Seq[String]): Vector[TaggedWord] =
-      tokens match {
-        case Seq() => sentence
-        case (posStr +: word +: rest) if Try(PartsOfSpeech.withName(posStr)).isSuccess =>
-          go(sentence :+ TaggedWord(word, PartsOfSpeech.withName(posStr)), rest)
-        case (t +: ts) => go(sentence, ts)
-      }
+    def go(sentence: Vector[TaggedWord], tokens: Seq[String]): Vector[TaggedWord] = tokens match {
+      case Seq() => sentence
+      case (posStr +: parsedWord +: rest) if Try(PartsOfSpeech.withName(posStr)).isSuccess =>
+        go(sentence :+ TaggedWord(Word(parsedWord), PartsOfSpeech.withName(posStr)), rest)
+      case (t +: ts) => go(sentence, ts)
+    }
 
     TaggedSentence(
       go(

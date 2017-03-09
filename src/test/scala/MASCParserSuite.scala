@@ -8,7 +8,7 @@ class MASCParserSuite extends FunSuite with Matchers {
 
   test("shallow example from file") {
     parseTree("( (NP-TMP (NNP December) (CD 1998)))") shouldBe
-      TaggedSentence(Vector(TaggedWord("December", NNP), TaggedWord("1998", CD)))
+      TaggedSentence(Vector(Word("December").tag(NNP), Word("1998").tag(CD)))
   }
 
   test("Deeper example from file with newlines") {
@@ -26,19 +26,22 @@ class MASCParserSuite extends FunSuite with Matchers {
 			      (VP (VB know))))))))
      (. .)))
       """.stripMargin) shouldBe
-      TaggedSentence(Vector(
-        TaggedWord("Your", PRPS),
-        TaggedWord("contribution", NN),
-        TaggedWord("to", TO),
-        TaggedWord("Goodwill", NNP),
-        TaggedWord("will", MD),
-        TaggedWord("mean", VB),
-        TaggedWord("more", JJR),
-        TaggedWord("than", IN),
-        TaggedWord("you", PRP),
-        TaggedWord("may", MD),
-        TaggedWord("know", VB),
-        TaggedWord("PERIOD", PERIOD)))
+      TaggedSentence(
+        Vector(
+          Word("Your").tag(PRPS),
+          Word("contribution").tag(NN),
+          Word("to").tag(TO),
+          Word("Goodwill").tag(NNP),
+          Word("will").tag(MD),
+          Word("mean").tag(VB),
+          Word("more").tag(JJR),
+          Word("than").tag(IN),
+          Word("you").tag(PRP),
+          Word("may").tag(MD),
+          Word("know").tag(VB),
+          Word("PERIOD").tag(PERIOD)
+        )
+      )
   }
 
   test("full file parser does not exhibit exceptional behaviour") {
