@@ -9,6 +9,7 @@ import grammar.PartsOfSpeech._
 import grammar.Phoneme._
 import grammar._
 import masc.parse.MASCParser._
+import org.scalacheck.Gen
 
 import scala.math.log
 
@@ -22,7 +23,7 @@ object TongueTwister {
 
   def countPhonemes(word2pronunciation: PronunciationDictionary)(words: Seq[Word]): Map[Phoneme, Int] =
     Monoid[Map[Phoneme, Int]].combineAll(
-      words map (word2pronunciation.getHistogram(_).getOrElse(Map[Phoneme, Int]()))
+      words map (word2pronunciation.getHistogram(_)) flatten
     )
 
   def evaluateCandidateWord(word2pron: PronunciationDictionary, history: Seq[Word])(candidate: Word): (Seq[Word], Double) = {

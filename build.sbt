@@ -1,4 +1,4 @@
-name := "cunning-linguist"
+name := "linguini"
 
 version := "1.0"
 
