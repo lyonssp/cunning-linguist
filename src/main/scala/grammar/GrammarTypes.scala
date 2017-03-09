@@ -161,9 +161,9 @@ case class TaggedSentence(taggedWords: Seq[TaggedWord]) {
     taggedWords map { case TaggedWord(w, t) => TaggedWord(w.toLowerCase, t) }
   )
 
-  def tokenized: String = taggedWords map {
+  def tokenized: String = taggedWords.map {
     case TaggedWord(w, t) => t.toString ++ " " ++ w.toString ++ " "
-  } mkString
+  }.mkString
 
   def template: SentenceTemplate = SentenceTemplate(taggedWords map (_.tag))
 

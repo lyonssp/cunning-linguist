@@ -10,6 +10,7 @@ import grammar.Phoneme._
 import grammar._
 import masc.parse.MASCParser._
 import org.scalacheck.Gen
+import org.scalacheck.Gen._
 
 import scala.math.log
 
@@ -18,19 +19,19 @@ object TongueTwister {
   def entropy(phonemeCounts: Map[Phoneme, Int]): Double = {
     val norm: Double = phonemeCounts.values.sum
     val probs = phonemeCounts.values map (_ / norm)
-    probs map (p => -p * log(p)) sum
+    probs.map(p => -p * log(p)).sum
   }
 
   def countPhonemes(word2pronunciation: PronunciationDictionary)(words: Seq[Word]): Map[Phoneme, Int] =
     Monoid[Map[Phoneme, Int]].combineAll(
-      words map (word2pronunciation.getHistogram(_)) flatten
+      words.map(word2pronunciation.getHistogram(_)).flatten
     )
 
   def evaluateCandidateWord(word2pron: PronunciationDictionary, history: Seq[Word])(candidate: Word): (Seq[Word], Double) = {
     val sentence = history :+ candidate
     val ent = entropy(countPhonemes(word2pron)(sentence))
     val unstressed = word2pron.getUnstressedPhonemes(candidate) getOrElse (Seq[Phoneme]())
-    val nPhonemes = unstressed size
+    val nPhonemes = unstressed.size
     val vowelCounts = unstressed count isVowel
     val vowelRatio = vowelCounts.toDouble / nPhonemes
 
@@ -51,24 +52,20 @@ object TongueTwister {
       ._1
   }
 
-  def randomTemplate(templates: Seq[Seq[PartsOfSpeech]]): Seq[PartsOfSpeech] =
-    templates(scala.util.Random.nextInt(templates.size))
+  def randomTemplate(templates: Seq[Seq[PartsOfSpeech]]): Gen[Seq[PartsOfSpeech]] =
+    oneOf(templates)
 
-  def randomTagged(tss: Seq[TaggedSentence]): TaggedSentence =
-    tss(scala.util.Random.nextInt(tss.size))
+  def randomTagged(tss: Seq[TaggedSentence]): Gen[TaggedSentence] =
+    oneOf(tss)
 
   def randomTongueTwister(sentenceTemplate: SentenceTemplate): TaggedSentence = {
     val folder = chooseNextWord(posWordMap, pronunciationDict)(_: Seq[Word])(_: PartsOfSpeech)
     sentenceTemplate.fill(folder)
   }
 
-  def tongueTwisterWithHistory: (TaggedSentence, TaggedSentence) = {
-    val sentenceSource = randomTagged(allTagged)
-    (
-      sentenceSource,
-      randomTongueTwister(sentenceSource.template)
-    )
-  }
+  def tongueTwisterWithHistory: Gen[(TaggedSentence, TaggedSentence)] =
+    for { sentenceSource <- randomTagged(allTagged) }
+    yield { (sentenceSource, randomTongueTwister(sentenceSource.template)) }
 
   val pronunciationDict = PronunciationDictionary.CMU
   val allTagged = readAll

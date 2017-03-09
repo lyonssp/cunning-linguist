@@ -3,6 +3,8 @@ name := "linguini"
 version := "1.0"
 
 scalaVersion := "2.12.1"
+scalacOptions += "-deprecation"
+scalacOptions += "-feature"
 
 // Last stable release
 libraryDependencies += "org.scalanlp" %% "breeze" % "0.13"
