@@ -147,6 +147,8 @@ case class SentenceTemplate(template: Seq[PartsOfSpeech]) {
       case (w: Word, p: PartsOfSpeech) => TaggedWord(w, p)
     })
   )
+
+  override def toString: String = template.map(_.toString) mkString " "
 }
 
 case class TaggedWord(word: Word, tag: PartsOfSpeech) {
