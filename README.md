@@ -10,7 +10,8 @@ In either case, we'd expect that the phoneme distribution of such tongue twister
 
 1. Use a treebank to get several sequences of parts of speech to use as sentence templates
 2. Create a collection of words corresponding to each part of speech
-3. For some sentence template, replace each part of speech with an appropriate word that decreases the entropy of the sentence.
+3. Use the pronunciation dictionary to get phoneme frequencies for each word.
+4. For some sentence template, replace each part of speech with an appropriate word that decreases the entropy of the phoneme distribution of the sentence.
 
 This idea manages to generate sentences with some structure, but not enough to pass as gramatically correct. Our first idea for generating sentences is fairly naive - so we expect to improve on the grammatical correctness significantly.
 
