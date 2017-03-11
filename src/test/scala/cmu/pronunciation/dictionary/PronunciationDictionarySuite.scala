@@ -74,8 +74,8 @@ class PronunciationDictionarySuite extends FunSuite with Matchers {
     assert(histogram.get(Phoneme.S) == 1)
   }
 
-  test("PronunciationDictionary.filter removes dictionary entries containing more than 5 syllables") {
-    val filtered = dictionary.filterByPhonemes(_.phonemes.length < 5)
+  test("PronunciationDictionary.filter removes dictionary entries containing more than 4 phonemes") {
+    val filtered = dictionary.filterByPhonemes(_.phonemes.length <= 4)
     assert(filtered.contains("word"))
     assert(filtered.contains("abate"))
     assert(!filtered.contains("abandonments"))
@@ -86,5 +86,14 @@ class PronunciationDictionarySuite extends FunSuite with Matchers {
     assert(!filtered.contains("word"))
     assert(filtered.contains("abate"))
     assert(filtered.contains("abandonments"))
+  }
+
+  test("PronunciationDictionary.filter removes dictionary entries beginning with 'a' with more than 5 phonemes") {
+    val filtered = dictionary.filter({
+      case (w,p) => w.charAt(0).toLower != 'a' || p.phonemes.length <= 5
+    })
+    assert(filtered.contains("word"))
+    assert(filtered.contains("abate"))
+    assert(!filtered.contains("abandonments"))
   }
 }

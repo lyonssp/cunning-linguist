@@ -3,6 +3,8 @@ package grammar
 import PartsOfSpeech._
 
 object GrammarUtils {
+  private val vowels = Set('a','e','i','o','u')
+
   def POSTemplates(tss: Seq[TaggedSentence]): Seq[SentenceTemplate] = tss map (_.template)
 
   def wordsPOS(tss: Seq[TaggedSentence]): Map[PartsOfSpeech, Seq[Word]] = {
@@ -17,4 +19,7 @@ object GrammarUtils {
     )
   }
 
+  def isVowel(letter: Char): Boolean = vowels.contains(letter)
+
+  def isConsonant(letter: Char): Boolean = !isVowel(letter)
 }

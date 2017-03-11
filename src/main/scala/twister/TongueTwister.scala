@@ -30,9 +30,9 @@ object TongueTwister {
   def evaluateCandidateWord(word2pron: PronunciationDictionary, history: Seq[Word])(candidate: Word): (Seq[Word], Double) = {
     val sentence = history :+ candidate
     val ent = entropy(countPhonemes(word2pron)(sentence))
-    val unstressed = word2pron.getUnstressedPhonemes(candidate) getOrElse (Seq[Phoneme]())
+    val unstressed = word2pron.getUnstressedPhonemes(candidate) getOrElse Seq[Phoneme]()
     val nPhonemes = unstressed.size
-    val vowelCounts = unstressed count isVowel
+    val vowelCounts = unstressed count isVowelSound
     val vowelRatio = vowelCounts.toDouble / nPhonemes
 
     val repetitionPenalty = if (history contains candidate) 10.0 else 1.0
@@ -52,11 +52,9 @@ object TongueTwister {
       ._1
   }
 
-  def randomTemplate(templates: Seq[Seq[PartsOfSpeech]]): Gen[Seq[PartsOfSpeech]] =
-    oneOf(templates)
+  def randomTemplate(templates: Seq[Seq[PartsOfSpeech]]): Gen[Seq[PartsOfSpeech]] = oneOf(templates)
 
-  def randomTagged(tss: Seq[TaggedSentence]): Gen[TaggedSentence] =
-    oneOf(tss)
+  def randomTagged(tss: Seq[TaggedSentence]): Gen[TaggedSentence] = oneOf(tss)
 
   def templateToTwister(sentenceTemplate: SentenceTemplate): TaggedSentence = {
     val folder = chooseNextWord(posWordMap, pronunciationDict)(_: Seq[Word])(_: PartsOfSpeech)
@@ -64,8 +62,11 @@ object TongueTwister {
   }
 
   def tongueTwisterWithHistory: Gen[(TaggedSentence, TaggedSentence)] =
-    for { sentenceSource <- randomTagged(allTagged).filter(!_.isEmpty) }
-    yield { (sentenceSource, templateToTwister(sentenceSource.template)) }
+    for {
+      sentenceSource <- randomTagged(allTagged).filter(!_.isEmpty)
+    } yield {
+      (sentenceSource, templateToTwister(sentenceSource.template))
+    }
 
   val pronunciationDict = PronunciationDictionary.CMU
   val allTagged = readAll

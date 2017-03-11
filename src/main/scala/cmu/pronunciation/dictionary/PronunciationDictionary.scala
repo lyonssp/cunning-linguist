@@ -74,15 +74,15 @@ case class PronunciationDictionary(pronunciations: Map[String, Pronunciation]) {
     phonemes => phonemes.groupBy((p: Phoneme) => p).mapValues(_.length)
   }
 
-  def filterByPhonemes(fn: Pronunciation => Boolean): PronunciationDictionary = PronunciationDictionary(
+  def filter(fn: (String, Pronunciation) => Boolean): PronunciationDictionary = PronunciationDictionary(
     this.pronunciations.filter {
-      case (w: String, p: Pronunciation) => fn(p)
+      case (w: String, p: Pronunciation) => fn(w, p)
     }
   )
 
-  def filterByText(fn: String => Boolean): PronunciationDictionary = PronunciationDictionary(
-    this.pronunciations.filter {
-      case (w: String, p: Pronunciation) => fn(w)
-    }
-  )
+  def filterByPhonemes(fn: Pronunciation => Boolean): PronunciationDictionary = this.filter({
+    (_, p) => fn(p)
+  })
+
+  def filterByText(fn: String => Boolean): PronunciationDictionary = this.filter({ (w, _) => fn(w) })
 }

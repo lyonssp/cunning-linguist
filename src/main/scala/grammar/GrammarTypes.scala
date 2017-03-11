@@ -4,7 +4,7 @@ import grammar.PartsOfSpeech.PartsOfSpeech
 
 //Phonemes
 object Phoneme extends Enumeration {
-  def isVowel(p: Phoneme): Boolean =
+  def isVowelSound(p: Phoneme): Boolean =
     Set(AA, AE, AH, AO, AW, AY, EH, ER, EY, IH, IY, OW, OY, UH, UW, V) contains p
 
   type Phoneme = Value
@@ -137,6 +137,10 @@ case class Word(raw: String) {
   def toLowerCase: Word = Word(raw.toLowerCase)
 
   override def toString: String = raw
+
+  def vowels: Seq[Char] = this.raw.filter(GrammarUtils.isVowel)
+
+  def consonants: Seq[Char] = this.raw.filter(GrammarUtils.isConsonant)
 }
 
 case class SentenceTemplate(template: Seq[PartsOfSpeech]) {
