@@ -1,11 +1,16 @@
 package cmu.pronunciation.dictionary
 
-import grammar.{Phoneme, Pronunciation, Stress, StressedPhoneme}
+import grammar._
 import org.scalatest.{FunSuite, Matchers}
 
 class PronunciationDictionarySuite extends FunSuite with Matchers {
   val dictionary = PronunciationDictionary(
     Map(
+      "AA" -> Pronunciation(
+        List(
+          StressedPhoneme(Phoneme.AA, Stress.Primary)
+        )
+      ),
       "WORD" -> Pronunciation(
         List(
           StressedPhoneme(Phoneme.W, Stress.None),
@@ -95,5 +100,13 @@ class PronunciationDictionarySuite extends FunSuite with Matchers {
     assert(filtered.contains("word"))
     assert(filtered.contains("abate"))
     assert(!filtered.contains("abandonments"))
+  }
+
+  test("PronunciationDictionary.filter removes words containing only vowels") {
+    val filtered = dictionary.filterByText(_.exists(GrammarUtils.isConsonant))
+    assert(!filtered.contains("aa"))
+    assert(filtered.contains("word"))
+    assert(filtered.contains("abate"))
+    assert(filtered.contains("abandonments"))
   }
 }

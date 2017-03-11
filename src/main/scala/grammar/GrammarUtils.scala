@@ -19,7 +19,7 @@ object GrammarUtils {
     )
   }
 
-  def isVowel(letter: Char): Boolean = vowels.contains(letter)
+  def isVowel(letter: Char): Boolean = vowels.contains(letter.toLower) || vowels.contains(letter.toUpper)
 
   def isConsonant(letter: Char): Boolean = !isVowel(letter)
 }

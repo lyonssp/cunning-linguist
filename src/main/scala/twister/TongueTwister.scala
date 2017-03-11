@@ -68,9 +68,12 @@ object TongueTwister {
       (sentenceSource, templateToTwister(sentenceSource.template))
     }
 
-  val pronunciationDict = PronunciationDictionary.CMU
+  val pronunciationDict =
+    PronunciationDictionary.CMU
+      .filterByText("""[\w]\.""".r.findFirstMatchIn(_).isEmpty)
+      .filterByText(_.exists(isConsonant))
+
   val allTagged = readAll
   val allTemplates = POSTemplates(allTagged)
   val posWordMap = wordsPOS(allTagged) mapValues (_ filter pronunciationDict.contains)
-
 }
