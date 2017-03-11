@@ -1,11 +1,44 @@
 package cmu.pronunciation.dictionary
 
-import grammar.Phoneme
+import grammar.{Phoneme, Pronunciation, Stress, StressedPhoneme}
 import org.scalatest.{FunSuite, Matchers}
 
 class PronunciationDictionarySuite extends FunSuite with Matchers {
-  val testSource = scala.io.Source.fromResource("cmu-pronunciation/cmudict-0.7b-reduced")
-  val dictionary = PronunciationDictionary.fromSource(testSource)
+  val dictionary = PronunciationDictionary(
+    Map(
+      "WORD" -> Pronunciation(
+        List(
+          StressedPhoneme(Phoneme.W, Stress.None),
+          StressedPhoneme(Phoneme.ER, Stress.Secondary),
+          StressedPhoneme(Phoneme.D, Stress.None)
+        )
+      ),
+      "ABATE" -> Pronunciation(
+        List(
+          StressedPhoneme(Phoneme.AH, Stress.Primary),
+          StressedPhoneme(Phoneme.B, Stress.None),
+          StressedPhoneme(Phoneme.EY, Stress.Secondary),
+          StressedPhoneme(Phoneme.T, Stress.None)
+        )
+      ),
+      "ABANDONMENTS" -> Pronunciation(
+        List(
+          StressedPhoneme(Phoneme.AH, Stress.None),
+          StressedPhoneme(Phoneme.B, Stress.None),
+          StressedPhoneme(Phoneme.AE, Stress.Primary),
+          StressedPhoneme(Phoneme.N, Stress.None),
+          StressedPhoneme(Phoneme.D, Stress.None),
+          StressedPhoneme(Phoneme.AH, Stress.None),
+          StressedPhoneme(Phoneme.N, Stress.None),
+          StressedPhoneme(Phoneme.M, Stress.None),
+          StressedPhoneme(Phoneme.AH, Stress.None),
+          StressedPhoneme(Phoneme.N, Stress.None),
+          StressedPhoneme(Phoneme.T, Stress.None),
+          StressedPhoneme(Phoneme.S, Stress.None)
+        )
+      )
+    )
+  )
 
   test("PronunciationDictionary.getWord returns None for words not present") {
     assert(dictionary.getWord("notaword").isEmpty)
@@ -18,7 +51,7 @@ class PronunciationDictionarySuite extends FunSuite with Matchers {
   }
 
   test("The correct phonemes are retrieved") {
-    dictionary.getUnstressedPhonemes("abate").get should contain allOf(Phoneme.AH,Phoneme.B,Phoneme.EY,Phoneme.T)
+    dictionary.getUnstressedPhonemes("abate").get should contain allOf(Phoneme.AH, Phoneme.B, Phoneme.EY, Phoneme.T)
   }
 
   test("Histograms are correctly generated") {
@@ -36,8 +69,16 @@ class PronunciationDictionarySuite extends FunSuite with Matchers {
     assert(histogram.get(Phoneme.AE) == 1)
     assert(histogram.get(Phoneme.N) == 3)
     assert(histogram.get(Phoneme.D) == 1)
+    assert(histogram.get(Phoneme.M) == 1)
     assert(histogram.get(Phoneme.T) == 1)
     assert(histogram.get(Phoneme.S) == 1)
+  }
+
+  test("Filter removes dictionary entries containing more than 5 syllables") {
+    val filtered = dictionary.filter(_.phonemes.length < 5)
+    assert(filtered.contains("word"))
+    assert(filtered.contains("abate"))
+    assert(!filtered.contains("abandonments"))
   }
 
 }
