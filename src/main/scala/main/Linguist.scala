@@ -15,7 +15,7 @@ object Linguist {
          |    ${source.toString}
          |Generated Tongue Twister:
          |    ${tongueTwister.toString}
-       """.stripMargin
+       |""".stripMargin
       )
     }
 }

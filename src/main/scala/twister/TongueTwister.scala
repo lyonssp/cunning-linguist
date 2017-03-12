@@ -73,7 +73,7 @@ object TongueTwister {
       .filterByText("""[\w]\.""".r.findFirstMatchIn(_).isEmpty)
       .filterByText(_.exists(isConsonant))
 
-  val allTagged = readAll
+  val allTagged = readAllTaggedSents
   val allTemplates = POSTemplates(allTagged)
   val posWordMap = wordsPOS(allTagged) mapValues (_ filter pronunciationDict.contains)
 }

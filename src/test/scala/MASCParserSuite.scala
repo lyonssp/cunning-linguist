@@ -1,5 +1,6 @@
 import grammar.PartsOfSpeech._
 import grammar._
+import masc.parse._
 import masc.parse.MASCParser._
 import org.scalatest._
 
@@ -7,12 +8,12 @@ import org.scalatest._
 class MASCParserSuite extends FunSuite with Matchers {
 
   test("shallow example from file") {
-    parseTree("( (NP-TMP (NNP December) (CD 1998)))") shouldBe
-      TaggedSentence(Vector(Word("December").tag(NNP), Word("1998").tag(CD)))
+    parseAll(taggedSentence, "( (NP-TMP (NNP December) (CD 1998)))").get shouldBe
+    TaggedSentence(Vector(Word("December").tag(NNP), Word("1998").tag(CD)))
   }
 
   test("Deeper example from file with newlines") {
-    parseTree(
+    parseAll(taggedSentence,
       """
     ( (S (NP-SBJ (NP (PRP$ Your) (NN contribution))
 	     (PP (TO to)
@@ -25,10 +26,10 @@ class MASCParserSuite extends FunSuite with Matchers {
 			  (VP (MD may)
 			      (VP (VB know))))))))
      (. .)))
-      """.stripMargin) shouldBe
+      """.stripMargin).get shouldBe
       TaggedSentence(
         Vector(
-          Word("Your").tag(PRPS),
+          Word("Your").tag(PRP$),
           Word("contribution").tag(NN),
           Word("to").tag(TO),
           Word("Goodwill").tag(NNP),
@@ -45,7 +46,7 @@ class MASCParserSuite extends FunSuite with Matchers {
   }
 
   test("full file parser does not exhibit exceptional behaviour") {
-    parseTrees(scala.io.Source.fromResource("110CYL067.mrg").mkString)
+    assert(parseAll(taggedSentences, scala.io.Source.fromResource("110CYL067.mrg").mkString).successful)
   }
 
 }
