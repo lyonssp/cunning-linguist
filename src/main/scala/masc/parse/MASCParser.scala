@@ -1,40 +1,34 @@
 package masc.parse
 
-import java.io.File
-
 import grammar._
-
+import java.io.File
 import scala.util.Try
 
-object MASCParser {
+object MASCParser extends SExpParser {
 
-  def parseTree(treeStr: String): TaggedSentence = {
-    def go(sentence: Vector[TaggedWord], tokens: Seq[String]): Vector[TaggedWord] = tokens match {
-      case Seq() => sentence
-      case (posStr +: parsedWord +: rest) if Try(PartsOfSpeech.withName(posStr)).isSuccess =>
-        go(sentence :+ TaggedWord(Word(parsedWord), PartsOfSpeech.withName(posStr)), rest)
-      case (t +: ts) => go(sentence, ts)
+  def taggedSentence: Parser[TaggedSentence] = {
+
+    def sexp2taggedSent(s: SExp): TaggedSentence = {
+      TaggedSentence(s.getLeaves.map {
+        case (pos, word) => Try((PartsOfSpeech.withName(pos), word))
+      } collect { // silently throws away unrecognized leaves for now
+        case scala.util.Success((p, w)) => TaggedWord(Word(w), p)
+      })
     }
 
-    TaggedSentence(
-      go(
-        Vector(),
-        treeStr
-          .filterNot("()".contains(_))
-          .map { c => if ("\n\t".contains(c)) ' ' else c }
-          .split(' ').filterNot(_ == "")
-      )
-    )
-
+    exp map sexp2taggedSent
   }
 
-  def parseTrees(treeStrs: String): Seq[TaggedSentence] =
-    treeStrs split ("""[\n]{2,}""") map parseTree
+  def taggedSentences: Parser[Seq[TaggedSentence]] = rep(taggedSentence)
 
-  def readAll: Seq[TaggedSentence] =
+  // prints failed parse messages
+  def readAllTaggedSents: Seq[TaggedSentence] =
     (new File("src/main/resources/Propbank"))
       .listFiles
-      .map(scala.io.Source.fromFile(_).mkString)
-      .flatMap(parseTrees)
-
+      .map {
+      fn => (fn, parseAll(taggedSentences, scala.io.Source.fromFile(fn).mkString))
+    }.collect {
+      case (fn, Success(ts, _)) => ts
+      case (fn, e: NoSuccess) => { println(fn); println(e); Seq[TaggedSentence]() }
+    }.toSeq.flatten
 }

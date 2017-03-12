@@ -294,7 +294,7 @@
 					      (PP-CLR (TO to)
 						      (NP (CD one) (DT another)))
 					      (ADVP-LOC (-NONE- *T*-1)))))))))))
-     (. .)))
+     (. .))
 
 ( (S (NP-SBJ (NNS Semantics))
      (VP (VBZ enters)

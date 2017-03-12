@@ -1,5 +1,6 @@
 import grammar.PartsOfSpeech._
 import grammar._
+import masc.parse._
 import masc.parse.MASCParser._
 import org.scalatest._
 
@@ -9,6 +10,11 @@ class MASCParserSuite extends FunSuite with Matchers {
   test("shallow example from file") {
     parseTree("( (NP-TMP (NNP December) (CD 1998)))") shouldBe
       TaggedSentence(Vector(Word("December").tag(NNP), Word("1998").tag(CD)))
+  }
+
+  test("shallow example from file with SExp Parser") {
+    MASCParser.parseLeaves("( (NP-TMP (NNP December) (CD 1998)))") shouldBe
+    Right(Seq(("NNP", "December"), ("CD", "1998")))
   }
 
   test("Deeper example from file with newlines") {

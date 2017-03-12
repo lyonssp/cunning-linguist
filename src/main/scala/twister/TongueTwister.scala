@@ -68,7 +68,7 @@ object TongueTwister {
     yield { (sentenceSource, templateToTwister(sentenceSource.template)) }
 
   val pronunciationDict = PronunciationDictionary.CMU
-  val allTagged = readAll
+  val allTagged = readAllTaggedSents
   val allTemplates = POSTemplates(allTagged)
   val posWordMap = wordsPOS(allTagged) mapValues (_ filter pronunciationDict.contains)
 

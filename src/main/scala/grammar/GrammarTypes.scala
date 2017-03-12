@@ -121,9 +121,9 @@ object PartsOfSpeech extends Enumeration {
   VBG,
   WDT,
   WP,
-  WRB,
-  LPAREN,
-  RPAREN = Value
+  WRB = Value
+  val LPAREN = Value("-LRB-")
+  val RPAREN = Value("-RRB-")
   val PRPS = Value("PRP$")
   val WPS = Value("WP$")
   val PERIOD = Value(".")
